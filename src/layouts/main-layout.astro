@@ -1,4 +1,7 @@
 ---
+import Footer from "../components/footer.astro";
+import NavBar from "../components/nav-bar.astro";
+
 const pageTitle = Astro.props;
 ---
 <!DOCTYPE html>
@@ -9,7 +12,11 @@ const pageTitle = Astro.props;
     <meta name="generator" content={Astro.generator} />
     <title>{ pageTitle }</title>
 </head>
-<body>
-    <slot/>
+<body class="flex flex-col items-center">
+    <main class="w-4/6">
+        <NavBar/>
+        <slot/>
+        <Footer/>
+    </main>
 </body>
 </html>

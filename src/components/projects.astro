@@ -1,0 +1,50 @@
+---
+const projects = [
+    {
+        name: 'RoadRunners',
+        link: 'https://road-runners-front.vercel.app/',
+        githubLink: 'https://github.com/Tcriss/RoadRunners-Front/raw/master/src/assets/previews/preview.png',
+        imageUrl: 'https://github.com/Tcriss/RoadRunners-Front/raw/master/src/assets/previews/preview.png',
+        description: 'A page to publish your car on sael',
+        tags: ['Angular', 'Firebase', 'Express', 'NestJS']
+    },
+    {
+        name: 'Weather App',
+        link: null,
+        githubLink: 'https://github.com/Tcriss/weather-react-app',
+        imageUrl: 'https://github.com/Tcriss/weather-react-app/raw/master/public/assets/previews/home-page.png',
+        description: 'A simple but elegant weather web app made with react + vite.',
+        tags: ['React', 'Zustand', 'Vite']
+    }
+];
+---
+<section id="projects" class="grid grid-cols-3 gap-3">
+    {
+        projects && projects.map(project => 
+            <article id="project" class="flex flex-col p-3 gap-4 rounded-xl shadow-[rgba(7,_65,_210,_0.1)_0px_9px_30px]">
+                <div id="image" class="w-full rounded-lg">
+                    <img src={project.imageUrl} alt="" class="w-full rounded-lg">
+                </div>
+                <div id="info" class="flex flex-col gap-3">
+                    <h3 id="tile" class="font-mono font-bold text-xl">{project.name}</h3>
+                    <p id="description">{project.description}</p>
+                    <ul id="tags" class="flex gap-2 flex-wrap">
+                        {
+                            project.tags && project.tags.map(tag => 
+                                <li id="tag" class="rounded-full text-xs bg-gray-400 py-2 px-3 text-slate-200 font-bold">
+                                    <p>{tag}</p>
+                                </li>
+                            )
+                        }
+                    </ul>
+                    <div id="links" class="w-full grid grid-cols-auto-fit-100 gap-2">
+                        <a href={project.githubLink} target="_blank" class="bg-[#24292F] hover:bg-[#24292F]/90 font-mono text-white rounded-lg p-3 text-center">Repository</a>
+                        {
+                            project.link !== null && <a href={project.link} target="_blank" class="bg-blue-400 font-mono text-white rounded-lg p-3 text-center">Link</a>
+                        }
+                    </div>
+                </div>
+            </article>
+        )
+    }
+</section>
