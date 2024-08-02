@@ -13,6 +13,7 @@ export default {
         cursor: 'cursor .6s linear infinite alternate',
         type: 'type 1.8s ease-out .8s 1 normal both',
         'type-reverse': 'type 1.8s ease-out 0s infinite alternate-reverse both',
+        'infinite-scroll': 'infinite-scroll 30s linear infinite',
       },
       keyframes: {
         type: {
@@ -28,6 +29,10 @@ export default {
           '85%, 90%': { width: '9ch' },
           '95%': { width: '10ch' },
         },
+        'infinite-scroll': {
+          '0%': { transform: 'translateX(100%)' },
+          '100%': { transform: 'translateX(-100%)' },
+        }
       },
     },
   },

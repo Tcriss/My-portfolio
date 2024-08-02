@@ -1,10 +1,14 @@
 ---
+import { Image } from 'astro:assets';
+import roadrunners from '../images/projects/roadrunners.png';
+import weatherapp from '../images/projects/weather-app.png';
+
 const projects = [
     {
         name: 'RoadRunners',
         link: 'https://road-runners-front.vercel.app/',
         githubLink: 'https://github.com/Tcriss/RoadRunners-Front/raw/master/src/assets/previews/preview.png',
-        imageUrl: 'https://github.com/Tcriss/RoadRunners-Front/raw/master/src/assets/previews/preview.png',
+        imageUrl: roadrunners,
         description: 'A page to publish your car on sael',
         tags: ['Angular', 'Firebase', 'Express', 'NestJS']
     },
@@ -12,7 +16,7 @@ const projects = [
         name: 'Weather App',
         link: null,
         githubLink: 'https://github.com/Tcriss/weather-react-app',
-        imageUrl: 'https://github.com/Tcriss/weather-react-app/raw/master/public/assets/previews/home-page.png',
+        imageUrl: weatherapp,
         description: 'A simple but elegant weather web app made with react + vite.',
         tags: ['React', 'Zustand', 'Vite']
     }
@@ -28,7 +32,7 @@ const projects = [
             projects && projects.map(project => 
                 <article id="project" class="flex flex-col p-3 gap-4 rounded-xl shadow-[rgba(7,_65,_210,_0.1)_0px_9px_30px]">
                     <div id="image" class="w-full rounded-lg">
-                        <img src={project.imageUrl} alt="" class="w-full rounded-lg">
+                        <Image src={project.imageUrl} width="323" height="154" alt={project.name} class="w-full rounded-lg">
                     </div>
                     <div id="info" class="flex flex-col gap-3">
                         <h3 id="tile" class="font-mono font-bold text-xl">{project.name}</h3>
