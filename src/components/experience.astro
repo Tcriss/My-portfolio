@@ -1,0 +1,64 @@
+---
+import { Image } from 'astro:assets';
+import type { Experience } from '../interfaces';
+import nelmixlogo from '../images/company-logos/nelmix.png';
+import Section from '../layouts/sections-layout.astro';
+
+const experiences: Experience[] = [
+    {
+        company: 'Nelmix Solutions',
+        companyLogoUrl: nelmixlogo,
+        time: '1 year 2 m',
+        comapyPageUrl: 'https://nelmix.com/',
+        tags: ['Typescript', 'Angular', 'Sass', 'Scrum', 'Jira'],
+        positions: [
+            {
+                start: 'Oct 2023',
+                end: 'Present',
+                role: 'Jr Frontend Web Developer',
+                description: 'My role envolves to create good experiences with the angular framework'
+            },
+            {
+                start: 'Jul 2023',
+                end: 'Oct 2023',
+                role: 'Intership Frontend Web Developer',
+                description: 'My role envolves to create good experiences with the angular framework'
+            }
+        ]
+    }
+];
+const desc: string = 'My experience';
+---
+<Section section="experience" name="Experience" description={desc}>
+    <div id="experiences" class="w-full grid gap-6">
+        {
+            experiences && experiences.map(xp => 
+                <article class="flex gap-3">
+                    <section id="logo" class="w-20 h-full">
+                        <Image src={xp.companyLogoUrl} alt={xp.company} width="80" height="80"/>
+                    </section>
+                    <section id="desc" class="grow grid gap-2">
+                        <a href={xp.comapyPageUrl} target="_blank" class="font-mono font-bold">{xp.company}</a>
+                        <p class="text-sm text-gray-500">{xp.time}</p>
+                        <ul id="postitions" class="grid gap-2">
+                            {
+                                xp.positions && xp.positions.map(position => 
+                                    <li/>
+                                        <p class="text-sm font-bold text-gray-500">{position.role}</p>
+                                        <p>{position.description}</p>
+                                        <p class="text-sm text-gray-500">{position.start} - {position.end}</p>
+                                    <li/>
+                                )
+                            }
+                        </ul>
+                        <ul id="tags" class="w-full flex flex-wrap gap-2">
+                            {
+                                xp.tags && xp.tags.map(tag => <li class="rounded-full text-xs bg-gray-400 py-2 px-3 text-slate-200 font-bold">{tag}</li>)
+                            }
+                        </ul>
+                    </section>
+                </article>
+            )
+        }
+    </div>
+</Section>

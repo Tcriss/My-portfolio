@@ -14,9 +14,8 @@ const pageTitle = Astro.props;
 </head>
 <body class="flex flex-col items-center transition-all duration-500">
     <NavBar/>
-    <main class="w-4/6">
-        <slot class="grid gap-5"/>
-        <div id="separator" class="h-16"></div>
+    <main class="w-4/6 grid gap-24">
+        <slot/>
         <Footer/>
     </main>
 </body>
