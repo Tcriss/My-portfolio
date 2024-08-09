@@ -1,20 +1,22 @@
 ---
-import { Image } from 'astro:assets';
-import settingsIcon from '../images/menu-dots-vertical.svg';
 import type { Link } from '../interfaces';
 import Mobile from './mobile-nav-bar.astro';
 
+const { lang } = Astro.props;
 const links: Link[] = [
   {
-    name: 'Home',
+    en_name: 'Home',
+    es_name: 'Inicio',
     path: '#hero'
   },
   {
-    name: 'Experience',
+    en_name: 'Experience',
+    es_name: 'Experiencia',
     path: '#experience'
   },
   {
-    name: 'Projects',
+    en_name: 'Projects',
+    es_name: 'Proyectos',
     path: '#projects'
   }
 ];
@@ -28,7 +30,7 @@ const links: Link[] = [
       {
         links && links.map(link => 
           <li class="font-jetbrains-mono">
-            <a href={link.path}>{link.name}</a>
+            <a href={link.path}>{lang === 'en' ? link.en_name : link.es_name}</a>
           </li>
         )
       }
@@ -41,9 +43,9 @@ const links: Link[] = [
         <button id="language-btn" class="w-full text-sm p-2 rounded-lg transition-colors duration-500 hover:bg-black/10 active:text-white active:bg-black relative flex items-center gap-3">
             <i class="fi fi-bs-world"></i>
             <i class="fi fi-bs-angle-small-right"></i>
-            <div id="language-picker" class="grid translate-x-8 opacity-0 transition-all duration-500 absolute right-20 top-0 bg-white/80 backdrop-blur-xl gap-3 p-3 rounded-xl shadow-[rgba(7,_65,_210,_0.1)_0px_9px_30px]">
-              <a href="/en/" class="text-sm p-2 rounded-lg font-jetbrains-mono font-bold hover:bg-black/10 active:text-white active:bg-black transition-colors duration-500">English</a>
-              <a href="/es/" class="text-sm p-2 rounded-lg font-jetbrains-mono font-bold hover:bg-black/10 active:text-white active:bg-black transition-colors duration-500">Spanish</a>
+            <div id="language-picker" class="grid translate-x-8 opacity-0 transition-all duration-500 absolute right-20 -top-3 bg-white/80 backdrop-blur-xl gap-3 p-3 rounded-xl shadow-[rgba(7,_65,_210,_0.1)_0px_9px_30px]">
+              <a href="/en" target="_blank" class="text-sm p-2 rounded-lg text-start font-jetbrains-mono font-bold hover:bg-black/10 active:text-white active:bg-black transition-colors duration-500">{ lang === 'en' ? 'English' : 'Inglés'}</a>
+              <a href="/es" class="text-sm p-2 rounded-lg font-jetbrains-mono font-bold hover:bg-black/10 active:text-white active:bg-black transition-colors duration-500">{lang === 'en' ? 'Spanish' : 'Español'}</a>
             </div>
         </button>
         <button id="ldark-mode-btn" class="w-full text-sm p-2 rounded-lg transition-colors duration-500 hover:bg-black/10 active:text-white active:bg-black flex items-center gap-3">
@@ -51,7 +53,7 @@ const links: Link[] = [
         </button>
       </section>
     </section>
-    <Mobile links={links}/>
+    <Mobile links={links} lang={lang}/>
   </div>
 </nav>
 <script>

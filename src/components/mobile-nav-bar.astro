@@ -4,7 +4,7 @@ import type { Link } from '../interfaces';
 import menuIcon from '../images/menu-dots-vertical.svg';
 import closeIcon from '../images/cross-small.svg';
 
-const { links } = Astro.props;
+const { links, lang } = Astro.props;
 const routes: Link[] = links;
 ---
 <section id="mobile-nav-bar" class="flex w-10/12 justify-between md:hidden">
@@ -26,7 +26,7 @@ const routes: Link[] = links;
     <ul id="content" class="w-full flex flex-col">
         {
             routes && routes.map(link => 
-                <a href={link.path} class="p-8 font-mono hover:bg-slate-800 hover:text-white">{link.name}</a>
+                <a href={link.path} class="p-8 font-mono hover:bg-slate-800 hover:text-white">{lang === 'en' ? link.en_name : link.es_name}</a>
             )
         }
     </ul>

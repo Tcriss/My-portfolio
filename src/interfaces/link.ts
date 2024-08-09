@@ -1,4 +1,5 @@
 export interface Link {
-    name: string;
+    en_name: string;
+    es_name: string;
     path: string;
 }

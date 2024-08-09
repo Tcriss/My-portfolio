@@ -7,13 +7,14 @@ import githubImg from '../images/logos/github-mark.png';
 import Section from '../layouts/sections-layout.astro';
 import type { Project } from '../interfaces';
 
+const { lang } = Astro.props;
 const projects: Project[] = [
     {
         name: 'RoadRunners',
         link: 'https://road-runners-front.vercel.app/',
         githubLink: 'https://github.com/Tcriss/RoadRunners-Front',
         imageUrl: roadrunners,
-        description: 'A page to publish your car on sael',
+        description: 'A page to publish your car on sale',
         tags: ['Angular', 'Firebase', 'Express', 'NestJS', 'Cloudinary', 'MongoDB', 'Firebase']
     },
     {
@@ -33,12 +34,69 @@ const projects: Project[] = [
         tags: ['NestJS', 'Clean Arquitecture', 'PostgreSQL', 'MongoDB', 'Jest', 'Prisma']
     }
 ];
-const desc: string = "Here's some of my best work.";
+const es_projects: Project[] = [
+    {
+        name: 'RoadRunners',
+        link: 'https://road-runners-front.vercel.app/',
+        githubLink: 'https://github.com/Tcriss/RoadRunners-Front',
+        imageUrl: roadrunners,
+        description: 'Una web donde puedes poner tu vehículo en venta.',
+        tags: ['Angular', 'Firebase', 'Express', 'NestJS', 'Cloudinary', 'MongoDB', 'Firebase']
+    },
+    {
+        name: 'Weather App',
+        link: null,
+        githubLink: 'https://github.com/Tcriss/weather-react-app',
+        imageUrl: weatherapp,
+        description: 'Simple pero elegante aplicación del clima.',
+        tags: ['React', 'Zustand', 'Vite']
+    },
+    {
+        name: 'Vantar API',
+        link: null,
+        githubLink: 'https://github.com/Tcriss/vantar-api',
+        imageUrl: vantar,
+        description: 'Una gran API para administrar inventarios.',
+        tags: ['NestJS', 'Clean Arquitecture', 'PostgreSQL', 'MongoDB', 'Jest', 'Prisma']
+    }
+];
+const desc: string = "Here's some of my best work for the moment.";
+const es_desc: string = 'Aqui dejo alguno de mis mejores proyectos por el momento'
 ---
-<Section section="projects" name="Projects" description={desc}>
+<Section section="projects" name={lang === 'en' ? 'Projects' : 'Proyectos'} description={lang === 'en' ? desc : es_desc}>
     <div class="w-full grid grid-cols-auto-fill-260 gap-3">
         {
-            projects && projects.map(project => 
+            lang === 'en' ? projects.map(project => 
+                <article id="project" class="flex flex-col p-3 gap-4 rounded-xl shadow-[rgba(7,_65,_210,_0.1)_0px_9px_30px]">
+                    <div id="image" class="w-full rounded-lg">
+                        <Image src={project.imageUrl} width="323" height="154" alt={project.name} class="w-full rounded-lg">
+                    </div>
+                    <div id="info" class="flex flex-col gap-4 justify-between">
+                        <div id="desc" class="flex flex-col gap-4">
+                            <div id="project-header" class="flex justify-between">
+                                {
+                                    project.link !== null ?
+                                    <a id="tile" href={project.link} target="_blank" class="font-jetbrains-mono font-bold text-xl">{project.name}</a> :
+                                    <p id="tile" class="font-jetbrains-mono font-bold text-xl">{project.name}</p>
+                                }
+                                <a href={project.githubLink} target="_blank">
+                                    <Image src={githubImg} width={25} height={25} alt="Source code" />
+                                </a>
+                            </div>
+                            <p id="description">{project.description}</p>
+                        </div>
+                        <ul id="tags" class="flex gap-2 flex-wrap">
+                            {
+                                project.tags && project.tags.map(tag => 
+                                    <li id="tag" class="rounded-full text-xs bg-gray-400 py-2 px-3 text-slate-200 font-bold">
+                                        <p>{tag}</p>
+                                    </li>
+                                )
+                            }
+                        </ul>
+                    </div>
+                </article>
+            ) : es_projects.map(project => 
                 <article id="project" class="flex flex-col p-3 gap-4 rounded-xl shadow-[rgba(7,_65,_210,_0.1)_0px_9px_30px]">
                     <div id="image" class="w-full rounded-lg">
                         <Image src={project.imageUrl} width="323" height="154" alt={project.name} class="w-full rounded-lg">
@@ -72,6 +130,8 @@ const desc: string = "Here's some of my best work.";
         }
     </div>
     <section id="actions" class="w-full py-7 flex justify-center items-center">
-        <a href="https://github.com/Tcriss?tab=repositories" target="_blank" class="w-56 font-jetbrains-mono text-center focus:outline-none focus:ring-4 font-medium rounded-full text-sm px-5 py-4 bg-gray-800 text-white border-gray-600 hover:bg-gray-700 hover:border-gray-600 focus:ring-gray-700">See all projects -></a>
+        <a href="https://github.com/Tcriss?tab=repositories" target="_blank" class="font-jetbrains-mono text-center focus:outline-none focus:ring-4 font-medium rounded-full text-sm px-5 py-4 bg-gray-800 text-white border-gray-600 hover:bg-gray-700 hover:border-gray-600 focus:ring-gray-700">{
+            lang === 'en' ? 'See all projects ->' : 'Ver todos los proyectos ->'
+        }</a>
     </section>
 </Section>

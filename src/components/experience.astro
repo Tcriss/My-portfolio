@@ -4,7 +4,8 @@ import type { Experience } from '../interfaces';
 import nelmixlogo from '../images/company-logos/nelmix.png';
 import Section from '../layouts/sections-layout.astro';
 
-const experiences: Experience[] = [
+const { lang } = Astro.props;
+const en_experiences: Experience[] = [
     {
         company: 'Nelmix Solutions',
         companyLogoUrl: nelmixlogo,
@@ -27,12 +28,62 @@ const experiences: Experience[] = [
         ]
     }
 ];
+const es_experiences: Experience[] = [
+    {
+        company: 'Nelmix Solutions',
+        companyLogoUrl: nelmixlogo,
+        time: '1a 2m',
+        comapyPageUrl: 'https://nelmix.com/',
+        tags: ['Typescript', 'Angular', 'Sass', 'Scrum', 'Jira'],
+        positions: [
+            {
+                start: 'Oct 2023',
+                end: 'Presente',
+                role: 'Jr Frontend Web Developer',
+                description: 'Mi role conciste en crear componentes con buena funcionalidad utilizando el framework de angular.'
+            },
+            {
+                start: 'Jul 2023',
+                end: 'Oct 2023',
+                role: 'Pasantia Frontend Web Developer',
+                description: 'Mi role concistió en crear paginas con el framework de angular.'
+            }
+        ]
+    }
+];
 const desc: string = 'My experience';
+const es_desc: string = 'Mi experiencia';
 ---
-<Section section="experience" name="Experience" description={desc}>
+<Section section="experience" name={lang === 'en' ? 'Experience' : 'Experiencia'} description={lang === 'en' ? desc : es_desc}>
     <div id="experiences" class="w-full grid gap-6">
         {
-            experiences && experiences.map(xp => 
+            lang === 'en' ? en_experiences.map(xp => 
+                <article class="flex gap-3">
+                    <section id="logo" class="w-20 h-full">
+                        <Image src={xp.companyLogoUrl} alt={xp.company} width={'80'} height={'80'}/>
+                    </section>
+                    <section id="desc" class="grow grid gap-2">
+                        <a href={xp.comapyPageUrl} target="_blank" class="font-jetbrains-mono font-bold">{xp.company}</a>
+                        <p class="text-sm text-gray-500">{xp.time}</p>
+                        <ul id="postitions" class="grid gap-2">
+                            {
+                                xp.positions && xp.positions.map(position => 
+                                    <li/>
+                                        <p class="text-sm font-raleway font-bold text-black/50">{position.role}</p>
+                                        <p>{position.description}</p>
+                                        <p class="text-sm">{position.start} - {position.end}</p>
+                                    <li/>
+                                )
+                            }
+                        </ul>
+                        <ul id="tags" class="w-full flex flex-wrap gap-2">
+                            {
+                                xp.tags && xp.tags.map(tag => <li class="rounded-full text-xs bg-gray-400 py-2 px-3 text-slate-200 font-bold">{tag}</li>)
+                            }
+                        </ul>
+                    </section>
+                </article>
+            ) : es_experiences.map(xp => 
                 <article class="flex gap-3">
                     <section id="logo" class="w-20 h-full">
                         <Image src={xp.companyLogoUrl} alt={xp.company} width={'80'} height={'80'}/>
