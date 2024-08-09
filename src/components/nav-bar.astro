@@ -1,4 +1,6 @@
 ---
+import { Image } from 'astro:assets';
+import settingsIcon from '../images/menu-dots-vertical.svg';
 import type { Link } from '../interfaces';
 import Mobile from './mobile-nav-bar.astro';
 
@@ -15,7 +17,7 @@ const links: Link[] = [
     name: 'Projects',
     path: '#projects'
   }
-]
+];
 ---
 <nav id="nav-bar" class="w-full flex justify-center h-14 md:h-20 fixed top-0 z-40 transition-all duration-500">
   <div class="w-full md:w-4/6 flex justify-center md:justify-between h-full">
@@ -31,9 +33,28 @@ const links: Link[] = [
         )
       }
     </ul>
+    <section id="settings" class="hidden md:flex justify-center items-center">
+      <button id="settings-btn" class="flex text-white justify-center items-center text-center w-8 h-8 focus:outline-none focus:ring-4 font-medium rounded-full text-sm bg-gray-800 border-gray-600 hover:bg-gray-700 hover:border-gray-600 focus:ring-gray-700">
+        <i class="fi fi-bs-menu-dots"></i>
+      </button>
+      <section id="settings-menu" class="-translate-y-8 opacity-0 transition-all duration-500 bg-white/80 backdrop-blur-xl gap-3 p-3 fixed top-24 right-auto rounded-xl shadow-[rgba(7,_65,_210,_0.1)_0px_9px_30px]">
+        <button id="language-btn" class="w-full text-sm p-2 rounded-lg transition-colors duration-500 hover:bg-black/10 active:text-white active:bg-black relative flex items-center gap-3">
+            <i class="fi fi-bs-world"></i>
+            <i class="fi fi-bs-angle-small-right"></i>
+            <div id="language-picker" class="grid translate-x-8 opacity-0 transition-all duration-500 absolute right-20 top-0 bg-white/80 backdrop-blur-xl gap-3 p-3 rounded-xl shadow-[rgba(7,_65,_210,_0.1)_0px_9px_30px]">
+              <a href="/en/" class="text-sm p-2 rounded-lg font-jetbrains-mono font-bold hover:bg-black/10 active:text-white active:bg-black transition-colors duration-500">English</a>
+              <a href="/es/" class="text-sm p-2 rounded-lg font-jetbrains-mono font-bold hover:bg-black/10 active:text-white active:bg-black transition-colors duration-500">Spanish</a>
+            </div>
+        </button>
+        <button id="ldark-mode-btn" class="w-full text-sm p-2 rounded-lg transition-colors duration-500 hover:bg-black/10 active:text-white active:bg-black flex items-center gap-3">
+            <i class="fi fi-bs-moon"></i>
+        </button>
+      </section>
+    </section>
     <Mobile links={links}/>
   </div>
 </nav>
 <script>
   import '../scripts/nav-bar';
+  import '../scripts/select-language';
 </script>
