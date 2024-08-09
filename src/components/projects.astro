@@ -48,8 +48,8 @@ const desc: string = "Here's some of my best work.";
                             <div id="project-header" class="flex justify-between">
                                 {
                                     project.link !== null ?
-                                    <a id="tile" href={project.link} target="_blank" class="font-mono font-bold text-xl">{project.name}</a> :
-                                    <p id="tile" class="font-mono font-bold text-xl">{project.name}</p>
+                                    <a id="tile" href={project.link} target="_blank" class="font-jetbrains-mono font-bold text-xl">{project.name}</a> :
+                                    <p id="tile" class="font-jetbrains-mono font-bold text-xl">{project.name}</p>
                                 }
                                 <a href={project.githubLink} target="_blank">
                                     <Image src={githubImg} width={25} height={25} alt="Source code" />
@@ -72,6 +72,6 @@ const desc: string = "Here's some of my best work.";
         }
     </div>
     <section id="actions" class="w-full py-7 flex justify-center items-center">
-        <a href="https://github.com/Tcriss?tab=repositories" target="_blank" class="w-48 font-mono text-center focus:outline-none focus:ring-4 font-medium rounded-full text-sm px-5 py-4 bg-gray-800 text-white border-gray-600 hover:bg-gray-700 hover:border-gray-600 focus:ring-gray-700">See all projects -></a>
+        <a href="https://github.com/Tcriss?tab=repositories" target="_blank" class="w-56 font-jetbrains-mono text-center focus:outline-none focus:ring-4 font-medium rounded-full text-sm px-5 py-4 bg-gray-800 text-white border-gray-600 hover:bg-gray-700 hover:border-gray-600 focus:ring-gray-700">See all projects -></a>
     </section>
 </Section>

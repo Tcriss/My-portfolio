@@ -35,18 +35,18 @@ const desc: string = 'My experience';
             experiences && experiences.map(xp => 
                 <article class="flex gap-3">
                     <section id="logo" class="w-20 h-full">
-                        <Image src={xp.companyLogoUrl} alt={xp.company} width="80" height="80"/>
+                        <Image src={xp.companyLogoUrl} alt={xp.company} width={'80'} height={'80'}/>
                     </section>
                     <section id="desc" class="grow grid gap-2">
-                        <a href={xp.comapyPageUrl} target="_blank" class="font-mono font-bold">{xp.company}</a>
+                        <a href={xp.comapyPageUrl} target="_blank" class="font-jetbrains-mono font-bold">{xp.company}</a>
                         <p class="text-sm text-gray-500">{xp.time}</p>
                         <ul id="postitions" class="grid gap-2">
                             {
                                 xp.positions && xp.positions.map(position => 
                                     <li/>
-                                        <p class="text-sm font-bold text-gray-500">{position.role}</p>
+                                        <p class="text-sm font-raleway font-bold text-black/50">{position.role}</p>
                                         <p>{position.description}</p>
-                                        <p class="text-sm text-gray-500">{position.start} - {position.end}</p>
+                                        <p class="text-sm">{position.start} - {position.end}</p>
                                     <li/>
                                 )
                             }

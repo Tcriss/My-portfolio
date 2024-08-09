@@ -1,4 +1,7 @@
 ---
+import '@fontsource-variable/raleway';
+import '@fontsource-variable/inter';
+import '@fontsource-variable/jetbrains-mono'
 import Footer from "../components/footer.astro";
 import NavBar from "../components/nav-bar.astro";
 
@@ -12,7 +15,7 @@ const pageTitle = Astro.props;
     <meta name="generator" content={Astro.generator} />
     <title>Cristian Tejeda</title>
 </head>
-<body class="flex flex-col items-center transition-all duration-500">
+<body class="flex font-inter flex-col items-center transition-all duration-500">
     <NavBar/>
     <main class="w-10/12 md:w-4/6 grid gap-24">
         <slot/>

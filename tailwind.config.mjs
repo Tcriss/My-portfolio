@@ -33,6 +33,11 @@ export default {
           '0%': { transform: 'translateX(100%)' },
           '100%': { transform: 'translateX(-100%)' },
         }
+      },
+      fontFamily: {
+        raleway: ["Raleway Variable", "sans-serif"],
+        inter: ["Inter Variable", "sans-serif"],
+        'jetbrains-mono': ["JetBrains Mono Variable", "sans-serif"]
       }
     },
   },
