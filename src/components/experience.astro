@@ -1,6 +1,7 @@
 ---
 import { Image } from 'astro:assets';
 import type { Experience } from '../interfaces';
+import ExperienceCard from './experience-card.astro';
 import nelmixlogo from '../images/company-logos/nelmix.png';
 import Section from '../layouts/sections-layout.astro';
 
@@ -9,46 +10,46 @@ const en_experiences: Experience[] = [
     {
         company: 'Nelmix Solutions',
         companyLogoUrl: nelmixlogo,
-        time: '1 year 2 m',
-        comapyPageUrl: 'https://nelmix.com/',
-        tags: ['Typescript', 'Angular', 'Sass', 'Scrum', 'Jira'],
-        positions: [
-            {
-                start: 'Oct 2023',
-                end: 'Present',
-                role: 'Jr Frontend Web Developer',
-                description: 'My role envolves to create good experiences with the angular framework'
-            },
-            {
-                start: 'Jul 2023',
-                end: 'Oct 2023',
-                role: 'Intership Frontend Web Developer',
-                description: 'My role envolves to create good experiences with the angular framework'
-            }
-        ]
-    }
-];
-const es_experiences: Experience[] = [
+        date: 'Present',
+        description: `
+            My role consists of creating, building and maintaining web applications,
+            optimizing their performance by improving quality and user experience.
+        `,
+        title: 'Jr Frontend Developer',
+        link: 'https://nelmix.com/',
+        skills: ['Angular', 'Typescript', 'Git', 'Github', 'Jira', 'Docker']
+    },
     {
         company: 'Nelmix Solutions',
         companyLogoUrl: nelmixlogo,
-        time: '1a 2m',
-        comapyPageUrl: 'https://nelmix.com/',
-        tags: ['Typescript', 'Angular', 'Sass', 'Scrum', 'Jira'],
-        positions: [
-            {
-                start: 'Oct 2023',
-                end: 'Presente',
-                role: 'Jr Frontend Web Developer',
-                description: 'Mi role conciste en crear componentes con buena funcionalidad utilizando el framework de angular.'
-            },
-            {
-                start: 'Jul 2023',
-                end: 'Oct 2023',
-                role: 'Pasantia Frontend Web Developer',
-                description: 'Mi role concistió en crear paginas con el framework de angular.'
-            }
-        ]
+        date: 'October 2023',
+        description: `My role consisted of polishing and maintaining consumer-focused websites.`,
+        title: 'Intership Frontend Developer',
+        link: 'https://nelmix.com/',
+        skills: ['Angular', 'TypeForms']
+    }
+];
+const es_experiences: Experience[] = [
+{
+        company: 'Nelmix Solutions',
+        companyLogoUrl: nelmixlogo,
+        date: 'Actualidad',
+        description: `
+            Mi rol conciste en la creación, construcción y mantenimiento de aplicaciones webs,
+            optimizando su desempeño mejorando la calidad y experiencia del usuario.
+        `,
+        title: 'Jr Frontend Web Developer',
+        link: 'https://nelmix.com/',
+        skills: ['Angular', 'Typescript', 'Git', 'Github', 'Jira', 'Docker']
+    },
+    {
+        company: 'Nelmix Solutions',
+        companyLogoUrl: nelmixlogo,
+        date: 'Octubre 2023',
+        description: `Mi rol concistía en pulir y mantener páginas web enfocadas hacia el consumidor.`,
+        title: 'Pasante Desarrollador Web Frontend',
+        link: 'https://nelmix.com/',
+        skills: ['Angular', 'TypeForms']
     }
 ];
 const desc: string = 'My experience';
@@ -57,59 +58,30 @@ const es_desc: string = 'Mi experiencia';
 <Section section="experience" name={lang === 'en' ? 'Experience' : 'Experiencia'} description={lang === 'en' ? desc : es_desc}>
     <div id="experiences" class="w-full grid gap-6">
         {
-            lang === 'en' ? en_experiences.map(xp => 
-                <article class="flex gap-3">
-                    <section id="logo" class="w-20 h-full">
-                        <Image src={xp.companyLogoUrl} alt={xp.company} width={'80'} height={'80'}/>
-                    </section>
-                    <section id="desc" class="grow grid gap-2">
-                        <a href={xp.comapyPageUrl} target="_blank" class="font-jetbrains-mono font-bold">{xp.company}</a>
-                        <p class="text-sm text-gray-500">{xp.time}</p>
-                        <ul id="postitions" class="grid gap-2">
-                            {
-                                xp.positions && xp.positions.map(position => 
-                                    <li/>
-                                        <p class="text-sm font-raleway font-bold text-black/50">{position.role}</p>
-                                        <p>{position.description}</p>
-                                        <p class="text-sm">{position.start} - {position.end}</p>
-                                    <li/>
-                                )
-                            }
-                        </ul>
-                        <ul id="tags" class="w-full flex flex-wrap gap-2">
-                            {
-                                xp.tags && xp.tags.map(tag => <li class="rounded-full text-xs bg-gray-400 py-2 px-3 text-slate-200 font-bold">{tag}</li>)
-                            }
-                        </ul>
-                    </section>
-                </article>
-            ) : es_experiences.map(xp => 
-                <article class="flex gap-3">
-                    <section id="logo" class="w-20 h-full">
-                        <Image src={xp.companyLogoUrl} alt={xp.company} width={'80'} height={'80'}/>
-                    </section>
-                    <section id="desc" class="grow grid gap-2">
-                        <a href={xp.comapyPageUrl} target="_blank" class="font-jetbrains-mono font-bold">{xp.company}</a>
-                        <p class="text-sm text-gray-500">{xp.time}</p>
-                        <ul id="postitions" class="grid gap-2">
-                            {
-                                xp.positions && xp.positions.map(position => 
-                                    <li/>
-                                        <p class="text-sm font-raleway font-bold text-black/50">{position.role}</p>
-                                        <p>{position.description}</p>
-                                        <p class="text-sm">{position.start} - {position.end}</p>
-                                    <li/>
-                                )
-                            }
-                        </ul>
-                        <ul id="tags" class="w-full flex flex-wrap gap-2">
-                            {
-                                xp.tags && xp.tags.map(tag => <li class="rounded-full text-xs bg-gray-400 py-2 px-3 text-slate-200 font-bold">{tag}</li>)
-                            }
-                        </ul>
-                    </section>
-                </article>
+            lang === 'en' ? en_experiences.map((xp, index) => 
+                <ExperienceCard
+                    title={xp.title}
+                    company={xp.company}
+                    description={xp.description}
+                    date={xp.date}
+                    link={xp.link}
+                    companyLogoUrl={xp.companyLogoUrl}
+                    index={index}
+                    skills={xp.skills}
+                />
+            ) : es_experiences.map((xp, index) => 
+                <ExperienceCard
+                    title={xp.title}
+                    company={xp.company}
+                    description={xp.description}
+                    date={xp.date}
+                    link={xp.link}
+                    companyLogoUrl={xp.companyLogoUrl}
+                    index={index}
+                    skills={xp.skills}
+                />
             )
         }
+        <div class="absolute md:left-1/2 transform -translate-x-1/2 w-0.5 h-full bg-gray-200" aria-hidden="true"></div>
     </div>
-</Section>
+</Section

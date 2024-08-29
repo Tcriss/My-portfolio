@@ -1,0 +1,40 @@
+---
+import { Image } from 'astro:assets';
+import type { Experience } from '../interfaces';
+import Tags from './tags.astro';
+
+interface Props extends Experience {
+    index: number;
+}
+
+const { title, company, description, link, date, companyLogoUrl, index, skills } = Astro.props;
+---
+
+<article class={`flex pl-6 md:pl-0 ${index % 2 === 0 ? 'md:flex-row-reverse' : 'flex-row'}`}>
+    <!-- Timeline dot -->
+    <div class="absolute z-10 md:left-1/2 transform -translate-x-[32px] md:-translate-x-1/2 w-4 h-4 rounded-full bg-black" aria-hidden="true"></div>
+    
+    <!-- Experience content -->
+    <div id="experience" class=`grid md:w-1/2 gap-3 ${index % 2 === 0 ? 'md:pl-4' : 'md:pr-4'}`>
+        <div class=`flex items-center ${index % 2 === 0 && 'md:justify-end'}`>
+            <Image src={companyLogoUrl} width="80" height="80" alt={`${company} logo`} class="rounded-full" />
+            <div class=`${index % 2 === 0 && 'md:text-right'}`>
+                <h3 class="text-xl font-semibold font-raleway">{title}</h3>
+                <p class="text-muted-foreground">{company}</p>
+            </div>
+        </div>
+        <div class={`flex items-center text-sm text-muted-foreground gap-3 ${index % 2 === 0 && 'md:justify-end'}`}>
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="16" y1="2" x2="16" y2="6"></line>
+                <line x1="8" y1="2" x2="8" y2="6"></line>
+                <line x1="3" y1="10" x2="21" y2="10"></line>
+            </svg>
+            <span>{date}</span>
+        </div>
+        <p class=`${index % 2 === 0 && 'md:text-right'}`>{description}</p>
+        <div class={`flex flex-wrap gap-2 ${index % 2 === 0 && 'md:justify-end'}`}>
+            { skills.map((skill) => <Tags tag={skill} />) }
+        </div>
+    </div>
+</article>

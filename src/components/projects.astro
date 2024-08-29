@@ -6,6 +6,7 @@ import vantar from '../images/projects/vantar-cover.png';
 import githubImg from '../images/logos/github-mark.png';
 import Section from '../layouts/sections-layout.astro';
 import type { Project } from '../interfaces';
+import Tags from './tags.astro';
 
 const { lang } = Astro.props;
 const projects: Project[] = [
@@ -87,11 +88,7 @@ const es_desc: string = 'Aqui dejo alguno de mis mejores proyectos por el moment
                         </div>
                         <ul id="tags" class="flex gap-2 flex-wrap">
                             {
-                                project.tags && project.tags.map(tag => 
-                                    <li id="tag" class="rounded-full text-xs bg-gray-400 py-2 px-3 text-slate-200 font-bold">
-                                        <p>{tag}</p>
-                                    </li>
-                                )
+                                project.tags && project.tags.map(tag => <Tags tag={tag} />)
                             }
                         </ul>
                     </div>
@@ -117,11 +114,7 @@ const es_desc: string = 'Aqui dejo alguno de mis mejores proyectos por el moment
                         </div>
                         <ul id="tags" class="flex gap-2 flex-wrap">
                             {
-                                project.tags && project.tags.map(tag => 
-                                    <li id="tag" class="rounded-full text-xs bg-gray-400 py-2 px-3 text-slate-200 font-bold">
-                                        <p>{tag}</p>
-                                    </li>
-                                )
+                                project.tags && project.tags.map(tag => <Tags tag={tag} />)
                             }
                         </ul>
                     </div>
