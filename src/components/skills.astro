@@ -1,0 +1,47 @@
+---
+import { Image } from 'astro:assets';
+import Section from '../layouts/sections-layout.astro';
+
+const { lang } = Astro.props;
+const description: string = 'Habilidades que poseo y las que estoy en aprendizaje';
+const en_description: string = `Skills I posses and some I'm learning`;
+const frontStack: string[] = [
+  "html",
+  "css",
+  "sass",
+  "tailwind",
+  "javascript",
+  "angular",
+  "react",
+  "astro",
+  "nodejs",
+  "express",
+  'nestjs',
+  'mongodb',
+  'postgres',
+  'prisma',
+  'git',
+  'github',
+  'docker',
+  'figma',
+  'jest',
+  'kotlin',
+];
+---
+
+<Section
+  class="w-full flex justify-center gap-3 overflow-hidden whitespace-nowrap [mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-200px),transparent_100%)]"
+  name={lang === 'en' ? 'Skills' : 'Habilidades'}
+  description={lang === 'en' ? en_description : description}
+  section="skills"
+>
+  <ul class="flex gap-3">
+    {
+      frontStack.map((stack) => (
+        <li class="carousel-item">
+          <Image src={`https://skillicons.dev/icons?i=${stack}`} alt={stack} width="50" height="50" />
+        </li>
+      ))
+    }
+  </ul>
+</Section>

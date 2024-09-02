@@ -2,7 +2,6 @@ const sections = document.querySelectorAll("section");
 const navItems = document.querySelectorAll("nav ul li a");
 
 const callback = (entries) => {
-  console.log("entries", entries);
   entries.forEach((entry) => {
     if (entry.isIntersecting) {
       navItems.forEach((item) => {
