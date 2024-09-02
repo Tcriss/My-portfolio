@@ -1,0 +1,25 @@
+---
+const { lang } = Astro.props;
+---
+<section id="settings" class="flex justify-center items-center">
+    <button id="settings-btn" class="flex transition-all duration-500 text-slate-500 hover:text-sky-500 justify-center items-center text-center w-8 h-8 focus:outline-none focus:ring-4 font-medium rounded-full text-lg bg-slate-200 hover:bg-slate-100 focus:ring-sky-200">
+      <i class="fi fi-bs-menu-dots-vertical"></i>
+    </button>
+    <section id="settings-menu" class="-translate-y-8 z-[52] opacity-0 transition-all duration-500 bg-white/80 backdrop-blur-xl gap-3 p-3 fixed top-24 right-auto rounded-xl shadow-[rgba(7,_65,_210,_0.1)_0px_9px_30px]">
+      <button id="language-btn" class="w-full text-sm p-2 rounded-lg transition-all duration-500 hover:bg-black/10 active:text-white active:bg-black relative flex items-center justify-start gap-3">
+          <i class="fi fi-bs-world"></i>
+          <p>{ lang === 'en' ? 'Language' : 'Idioma'}</p>
+          <div id="language-picker" class="grid z-[50]  opacity-0 transition-all duration-500 absolute right-20 -top-3 bg-white/80 backdrop-blur-xl gap-3 p-3 rounded-xl shadow-[rgba(7,_65,_210,_0.1)_0px_9px_30px]">
+            <a href="/en" class="text-sm p-2 rounded-lg text-start font-jetbrains-mono font-bold hover:bg-black/10 active:text-white active:bg-black transition-colors duration-500">{ lang === 'en' ? 'English' : 'Inglés'}</a>
+            <a href="/es" class="text-sm p-2 rounded-lg font-jetbrains-mono font-bold hover:bg-black/10 active:text-white active:bg-black transition-colors duration-500">{lang === 'en' ? 'Spanish' : 'Español'}</a>
+          </div>
+      </button>
+      <button id="dark-mode-btn" class="w-full text-sm p-2 rounded-lg transition-colors duration-500 hover:bg-black/10 active:text-white active:bg-black relative flex items-center gap-3">
+          <i class="fi fi-bs-moon"></i>
+          <p>{ lang === 'en' ? 'Dark mode' : 'Modo oscuro'}</p>
+      </button>
+    </section>
+</section>
+<script>
+    import '../scripts/select-language';
+</script>
