@@ -25,7 +25,7 @@ const es = {
 ---
 <section id="hero" class="w-full h-screen flex gap-6 justify-center">
     <div id="resume" class="w-full flex flex-col gap-6 justify-center">
-        <h1 class="font-bold text-4xl font-raleway">
+        <h1 class="font-bold text-4xl font-raleway dark:text-white">
             <strong class="font-jetbrains-mono font-bold inline-flex pt-2 overflow-x-hidden overflow-y-hidden animate-type group-hover:animate-type-reverse whitespace-nowrap text-brand-accent will-change-transform">Hello World</strong><span
                 class="box-border inline-block w-1 h-12 ml-2 -mb-2 transparent md:-mb-4 md:h-16 animate-cursor will-change-transform"
             ></span>,
@@ -33,21 +33,21 @@ const es = {
         </h1>
         <p id="resume" class="leading-8">{ lang && lang === 'en' ? en.description : es.description }</p>
         <div id="actions" class="flex flex-wrap gap-5">
-            <a href={lang === 'en' ? '/resume.pdf' : '/curriculum.pdf' } target="_blank" class="text-sm items-center font-jetbrains-mono flex gap-4 rounded-full border-2 border-slate-200 bg-slate-50 transition-all duration-500 p-2 active:scale-95">
+            <a href={lang === 'en' ? '/resume.pdf' : '/curriculum.pdf' } target="_blank" class="text-sm items-center font-jetbrains-mono flex gap-2 dark:bg-slate-700 rounded-full border-2 border-slate-200 dark:border-slate-600 bg-slate-50 transition-all duration-500 p-2 active:scale-95">
                 <Image src={ResumeIcon} width={'16'} height={'16'} alt="DownloadCV" />
                 <p>{lang === 'en' ? en.resumeBtn : es.resumeBtn}</p>
             </a>
-            <a href="https://github.com/Tcriss" target="_blank" class="text-sm font-jetbrains-mono border-2 border-slate-200 bg-slate-50 flex gap-4 rounded-full transition-all duration-500 p-2 active:scale-95">
+            <a href="https://github.com/Tcriss" target="_blank" class="text-sm font-jetbrains-mono border-2 border-slate-200 dark:border-slate-600 bg-slate-50 flex gap-2 dark:bg-slate-700 rounded-full transition-all duration-500 p-2 active:scale-95">
                 <Image src={GithubIcon} width={'16'} height={'16'} alt="My github" />
-                <p>Linkedin</p>
-            </a>
-            <a href="https://www.linkedin.com/in/cristiant25/" target="_blank" class="text-sm font-jetbrains-mono border-2 border-slate-200 bg-slate-50 flex gap-4 rounded-full transition-all duration-500 p-2 active:scale-95">
-                <Image src={LinkedinIcon} width={'16'} height={'16'} alt="Linkedin profile" />
                 <p>Github</p>
             </a>
-            <a href="mailto:cristiantejeda14@gmail.com" target="_blank" class="text-sm font-jetbrains-mono flex gap-4 rounded-full border-2 border-slate-200 bg-slate-50 transition-all duration-500 p-2 active:scale-95">
+            <a href="https://www.linkedin.com/in/cristiant25/" target="_blank" class="text-sm font-jetbrains-mono border-2 border-slate-200 dark:border-slate-600 bg-slate-50 flex gap-2 dark:bg-slate-700 rounded-full transition-all duration-500 p-2 active:scale-95">
+                <Image src={LinkedinIcon} width={'16'} height={'16'} alt="Linkedin profile" />
+                <p>Linkedin</p>
+            </a>
+            <a href="mailto:cristiantejeda14@gmail.com" target="_blank" class="text-sm font-jetbrains-mono flex gap-2 dark:bg-slate-700 rounded-full border-2 border-slate-200 dark:border-slate-600 bg-slate-50 transition-all duration-500 p-2 active:scale-95">
                 <Image src={EmailIcon} width={'16'} height={'16'} alt="DownloadCV" />
-                <p>{lang === 'en' ? 'Email' : 'Correo'}</p>
+                <p>cristiantejeda14@gmail.com</p>
             </a>
         </div>
     </div>

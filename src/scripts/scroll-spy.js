@@ -8,9 +8,13 @@ const callback = (entries) => {
         if (item.getAttribute("aria-label") == entry.target.id) {
           item.classList.add("text-blue-400");
           item.classList.add("bg-slate-100");
+          item.classList.add("dark:hover:bg-slate-600");
+          item.classList.add("dark:hover:text-white/80");
         } else {
           item.classList.remove("text-blue-400");
           item.classList.remove("bg-slate-100");
+          item.classList.remove("dark:bg-slate-600");
+          item.classList.remove("dark:text-white/80");
         }
       });
     }

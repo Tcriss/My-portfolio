@@ -5,14 +5,21 @@ const languageList = document.getElementById('language-picker');
 
 settingsBtn.addEventListener('click', (e) => {
     e.preventDefault();
+    settingsMenu.classList.toggle('invisible');
+    settingsMenu.classList.toggle('-translate-y-8');
+    settingsMenu.classList.toggle('opacity-0');
+});
+
+settingsBtn.addEventListener('mouseenter', (e) => {
+    e.preventDefault();
+    settingsMenu.classList.toggle('invisible');
     settingsMenu.classList.toggle('-translate-y-8');
     settingsMenu.classList.toggle('opacity-0');
 });
 
 languageBtn.addEventListener('click', (e) => {
     e.preventDefault();
-    // languageList.classList.toggle('hidden');
-    // languageList.classList.toggle('grid');
-    languageList.classList.toggle('translate-x-8');
+    languageList.classList.toggle('invisible');
+    languageList.classList.toggle('-translate-x-[24px]');
     languageList.classList.toggle('opacity-0');
 });
