@@ -18,8 +18,9 @@ settingsBtn.addEventListener('mouseenter', (e) => {
 });
 
 languageBtn.addEventListener('click', (e) => {
-    e.preventDefault();
+    //Oe.preventDefault();
     languageList.classList.toggle('invisible');
     languageList.classList.toggle('-translate-x-[24px]');
     languageList.classList.toggle('opacity-0');
+    
 });
