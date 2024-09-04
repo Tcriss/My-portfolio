@@ -12,10 +12,10 @@ const links: Link[] = [
     path: '#hero'
   },
   {
-    en_name: 'Skills',
-    es_name: 'Habilidades',
-    label: 'skills',
-    path: '#skills'
+    en_name: 'About me',
+    es_name: 'Sobre mi',
+    label: 'about',
+    path: '#about'
   },
   {
     en_name: 'Experience',
@@ -31,7 +31,7 @@ const links: Link[] = [
   }
 ];
 ---
-<nav id="nav-bar" class="flex gap-3 justify-center fixed top-6 rounded-full p-[10px] z-40 transition-all duration-500">
+<nav id="nav-bar" class="flex gap-3 justify-center sticky top-6 rounded-full p-[10px] z-40 transition-all duration-500">
   <ul class="hidden md:flex justify-center gap-3 items-center">
     {
       links && links.map(link => 
