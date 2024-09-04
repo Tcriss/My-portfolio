@@ -1,10 +1,9 @@
 ---
 import { Image } from 'astro:assets';
+import MyPicture from '../images/profile/my-picture.jpeg';
 import Section from '../layouts/sections-layout.astro';
 
 const { lang } = Astro.props;
-const description: string = 'Habilidades que poseo y las que estoy en aprendizaje';
-const en_description: string = `Skills I posses and some I'm learning`;
 const frontStack: string[] = [
   "html",
   "css",
@@ -29,19 +28,42 @@ const frontStack: string[] = [
 ];
 ---
 
-<Section
-  class="w-full flex justify-center gap-3 overflow-hidden whitespace-nowrap [mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-200px),transparent_100%)]"
-  name={lang === 'en' ? 'Skills' : 'Habilidades'}
-  description={lang === 'en' ? en_description : description}
-  section="skills"
+<secton
+  id="about-me"
+  class="w-full flex flex-col justify-center gap-7"
 >
-  <ul class="flex gap-3">
-    {
-      frontStack.map((stack) => (
-        <li class="carousel-item">
-          <Image src={`https://skillicons.dev/icons?i=${stack}`} alt={stack} width="50" height="50" />
-        </li>
-      ))
-    }
-  </ul>
-</Section>
+  <div id="description" class="flex flex-col lg:flex-row items-center w-full gap-10">
+    <Image src={MyPicture} width={'240'} height={'240'} alt={'Cristian Tejeda'} class="w-60 h-60 rounded-full" />
+    <div class="grid gap-3 text-center lg:text-start">
+      {
+        lang === 'en' ? <p></p> :
+        <p class="text-black/60 dark:text-white/60 font-semibold font-inter leading-8">
+          Soy Cristian Tejeda, un desarrollador jr con más de un año de experiencia 
+          brindando soluciones Front-End en Nelmiz Solutions.
+        </p>
+        <p class="text-black/60 dark:text-white/60 font-semibold font-inter leading-8">
+          Fuera del ambito profesional, dedico una parte de mi tiempo a la mejora y aprendizaje, 
+          libero mi creatividad construyendo proyectos asombrosos en donde pongo toda mi dedicación
+          con herramientas como: Angular, NestjS o React. Me gusta aprender de todo y de todos, de alguien siempre
+          se puede aprender, y es por eso que soy curioso intentando siempre poder lograr más.
+        </p>
+        <p>Abjo te dejo las herramientas que manejo:</p>
+        <ul class="flex flex-wrap justify-center gap-3">
+          {
+            frontStack.map((stack) => (
+              <li id="skill" class="grid grid-cols-auto-fit-100">
+                <Image
+                  src={`https://skillicons.dev/icons?i=${stack}`}
+                  alt={stack}
+                  width="50"
+                  height="50"
+                  loading={'lazy'}
+                />
+              </li>
+            ))
+          }
+        </ul>
+      }
+    </div>
+  </div>
+</secton>
