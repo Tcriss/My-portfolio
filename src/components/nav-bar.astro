@@ -1,6 +1,6 @@
 ---
 import type { Link } from '../interfaces';
-import Mobile from './mobile-nav-bar.astro';
+import MobileNavBar from './mobile-nav-bar.astro';
 import Settings from './settings.astro';
 
 const { lang } = Astro.props;
@@ -47,10 +47,14 @@ const links: Link[] = [
       )
     }
   </ul>
-  <Mobile links={links} lang={lang}/>
+  <button id="open-btn" class="flex md:hidden relative transition-all duration-500 transparent hover:text-sky-500 justify-center items-center text-center w-8 h-8 focus:outline-none focus:ring-4 font-medium rounded-full text-lg bg-slate-200 dark:bg-slate-700 hover:bg-slate-100 focus:ring-sky-200">
+    <i class="fi fi-bs-bars-staggered flex items-center justify-center"></i>
+  </button>
   <Settings lang={lang}/>
 </nav>
+<MobileNavBar routes={links}/>
 <script>
   import '../scripts/nav-bar';
   import '../scripts/scroll-spy';
 </script>
+<script src="../scripts/collapse-side-nav"/>

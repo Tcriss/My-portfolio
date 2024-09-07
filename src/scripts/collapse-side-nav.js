@@ -7,14 +7,21 @@ const theme = localStorage.getItem('theme') || 'system';
 
 openBtn.addEventListener('click', (e) => {
     e.preventDefault();
-    aside.classList.toggle('translate-x-full');
     aside.classList.toggle('invisible');
+    aside.classList.toggle('translate-x-full');
 });
 
 closeBtn.addEventListener('click', (e) => {
     e.preventDefault();
-    aside.classList.toggle('translate-x-full');
     aside.classList.toggle('invisible');
+    aside.classList.toggle('translate-x-full');
+});
+
+navItems.forEach(item => {
+  item.addEventListener('click', () => {
+    aside.classList.toggle('invisible');
+    aside.classList.toggle('translate-x-full');
+  });
 });
 
 const callback = (entries) => {
