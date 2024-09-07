@@ -11,10 +11,7 @@ const { title, company, description, link, date, companyLogoUrl, index, skills }
 ---
 
 <article class={`flex pl-6 md:pl-0 ${index % 2 === 0 ? 'md:flex-row-reverse' : 'flex-row'}`}>
-    <!-- Timeline dot -->
-    <div class="absolute z-10 md:left-1/2 transform -translate-x-[32px] md:-translate-x-1/2 w-4 h-4 rounded-full bg-black dark:bg-slate-300" aria-hidden="true"></div>
-    
-    <!-- Experience content -->
+    <div id="timeline-dot" class="absolute z-10 md:left-1/2 transform -translate-x-[32px] md:-translate-x-1/2 w-4 h-4 rounded-full bg-black dark:bg-slate-300" aria-hidden="true"></div>
     <div id="experience" class=`grid md:w-1/2 gap-3 ${index % 2 === 0 ? 'md:pl-4' : 'md:pr-4'}`>
         <div class=`flex items-center ${index % 2 === 0 && 'md:justify-end'}`>
             <Image src={companyLogoUrl} width="80" height="80" alt={`${company} logo`} class="rounded-full" />

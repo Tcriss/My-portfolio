@@ -1,6 +1,8 @@
 let remove = null;
 const themeToggleBtn = document.getElementById('theme-toggle-btn');
 const matchMedia = window.matchMedia("(prefers-color-scheme: dark)");
+const url = window.location.href;
+let isEnglish = url.includes('/en/');
 
 function getThemePreference() {
   if (typeof localStorage !== "undefined") return localStorage.getItem("theme") ?? "system";
@@ -31,19 +33,19 @@ function changeTheme() {
     case 'light':
       themeToggleBtn.innerHTML =  `
         <i class="fi fi-bs-brightness flex items-center justify-center"></i>
-        Claro
+        ${isEnglish ? 'Light' : 'Claro'}
       `;
       break;
     case('dark'):
       themeToggleBtn.innerHTML = `
         <i class="fi fi-bs-moon flex items-center justify-center"></i>
-        Oscuro
+        ${isEnglish ? 'Dark' : 'Oscuro'}
       `;
       break;
     default:
       themeToggleBtn.innerHTML = `
         <i class="fi fi-bs-computer flex items-center justify-center"></i>
-        Sistema
+        ${isEnglish ? 'System' : 'Sistema'}
       `;
       break;
   };
@@ -60,21 +62,21 @@ themeToggleBtn.addEventListener("click", (e) => {
       updateTheme('light');
       themeToggleBtn.innerHTML =  `
         <i class="fi fi-bs-brightness flex items-center justify-center"></i>
-        Claro
+        ${isEnglish ? 'Light' : 'Claro'}
       `;
       break;
     case('light'):
       updateTheme('dark');
       themeToggleBtn.innerHTML = `
         <i class="fi fi-bs-moon flex items-center justify-center"></i>
-        Oscuro
+        ${isEnglish ? 'Dark' : 'Oscuro'}
       `;
       break;
     default:
       updateTheme('system');
       themeToggleBtn.innerHTML = `
         <i class="fi fi-bs-computer flex items-center justify-center"></i>
-        Sistema
+        ${isEnglish ? 'System' : 'Sistema'}
       `;
       break;
   };
