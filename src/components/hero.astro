@@ -1,10 +1,4 @@
 ---
-import { Image } from "astro:assets";
-import GithubIcon from '../assets/github.svg';
-import LinkedinIcon from '../images/linkedin.svg';
-import ResumeIcon from '../assets/resume.svg';
-import EmailIcon from '../assets/email.svg';
-
 const { lang } = Astro.props;
 const en = {
     presentation: "I'm Cristian Tejeda",
@@ -34,19 +28,19 @@ const es = {
         <p id="resume" class="leading-8">{ lang && lang === 'en' ? en.description : es.description }</p>
         <div id="actions" class="flex flex-wrap gap-5">
             <a href={lang === 'en' ? '/resume.pdf' : '/curriculum.pdf' } target="_blank" class="text-sm items-center font-jetbrains-mono flex gap-2 dark:bg-slate-700 rounded-full border-2 border-slate-200 dark:border-slate-600 bg-slate-50 transition-all duration-500 p-2 active:scale-95">
-                <Image src={ResumeIcon} width={'16'} height={'16'} alt="DownloadCV" />
+                <i class="fi fi-sr-resume flex justify-center items-center text-black dark:text-white"></i>
                 <p>{lang === 'en' ? en.resumeBtn : es.resumeBtn}</p>
             </a>
             <a href="https://github.com/Tcriss" target="_blank" class="text-sm font-jetbrains-mono border-2 border-slate-200 dark:border-slate-600 bg-slate-50 flex gap-2 dark:bg-slate-700 rounded-full transition-all duration-500 p-2 active:scale-95">
-                <Image src={GithubIcon} width={'16'} height={'16'} alt="My github" />
+                <i class="fi fi-brands-github flex justify-center items-center text-black dark:text-white"></i>
                 <p>Github</p>
             </a>
             <a href="https://www.linkedin.com/in/cristiant25/" target="_blank" class="text-sm font-jetbrains-mono border-2 border-slate-200 dark:border-slate-600 bg-slate-50 flex gap-2 dark:bg-slate-700 rounded-full transition-all duration-500 p-2 active:scale-95">
-                <Image src={LinkedinIcon} width={'16'} height={'16'} alt="Linkedin profile" />
+                <i class="fi fi-brands-linkedin flex justify-center items-center text-black dark:text-white"></i>
                 <p>Linkedin</p>
             </a>
             <a href="mailto:cristiantejeda14@gmail.com" target="_blank" class="text-sm font-jetbrains-mono flex gap-2 dark:bg-slate-700 rounded-full border-2 border-slate-200 dark:border-slate-600 bg-slate-50 transition-all duration-500 p-2 active:scale-95">
-                <Image src={EmailIcon} width={'16'} height={'16'} alt="DownloadCV" />
+                <i class="fi fi-sr-envelope flex justify-center items-center text-black dark:text-white"></i>
                 <p>cristiantejeda14@gmail.com</p>
             </a>
         </div>
