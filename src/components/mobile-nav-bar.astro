@@ -1,34 +1,30 @@
 ---
-import { Image } from 'astro:assets';
 import type { Link } from '../interfaces';
-import menuIcon from '../assets/menu-dots-vertical.svg';
-import closeIcon from '../assets/cross-small.svg';
 
 const { links, lang } = Astro.props;
 const routes: Link[] = links;
 ---
 <section id="mobile-nav-bar" class="flex w-10/12 justify-between md:hidden">
-    <section class="w-20 flex justify-center items-center">
-        <h3 class="font-mono font-black">C A T R</h3>
-    </section>
     <div id="nav-toggle" class="flex justify-end items-center">
-        <button id="open-btn" class="w-12 h-12 flex justify-center items-center border-2 border-gray-500 rounded-xl">
-            <Image src={menuIcon} width={'20'} height={'20'} alt="icon">
+        <button id="open-btn" class="flex relative transition-all duration-500 transparent hover:text-sky-500 justify-center items-center text-center w-8 h-8 focus:outline-none focus:ring-4 font-medium rounded-full text-lg bg-slate-200 dark:bg-slate-700 hover:bg-slate-100 focus:ring-sky-200">
+            <i class="fi fi-bs-bars-staggered flex items-center justify-center"></i>
         </button>
     </div>
 </section>
-<aside id="aside-nav-bar" class="flex flex-col items-center justify-between translate-x-full transition-transform duration-500 gap-2 fixed z-50 top-0 w-screen h-screen bg-white/80 backdrop-blur-xl shadow-[rgba(7,_65,_210,_0.1)_0px_9px_30px]">
+<aside id="aside-nav-bar" class="flex flex-col items-center justify-between invisible translate-x-full transition-transform duration-500 gap-2 fixed z-50 top-0 w-screen h-screen bg-white/80 dark:bg-gray-700/80 backdrop-blur-xl shadow-[rgba(7,_65,_210,_0.1)_0px_9px_30px]">
     <header class="w-10/12 h-20 font-mono flex justify-end items-center">
-        <button id="close-btn" class="w-12 h-12 flex justify-center items-center border-2 border-gray-500 rounded-xl">
-            <Image src={closeIcon} alt="Close" width={'20'} height={'20'}/>
+        <button id="close-btn" class="flex relative transition-all duration-500 transparent hover:text-sky-500 justify-center items-center text-center w-8 h-8 focus:outline-none focus:ring-4 font-medium rounded-full text-lg bg-slate-200 dark:bg-slate-700 hover:bg-slate-100 focus:ring-sky-200">
+            <i class="fi fi-bs-cross-small flex items-center justify-center"></i>
         </button>
     </header>
-    <ul id="content" class="w-full flex flex-col">
+    <ul id="content" class="w-10/12 flex flex-col">
         {
             routes && routes.map(link => 
-                <a href={link.path} class="p-8 font-mono hover:bg-slate-800 hover:text-white">{lang === 'en' ? link.en_name : link.es_name}</a>
+                <a id="mobile-nav-link" href={link.path} aria-label={link.label} class="mobile-nav-link p-[30px] transition-all duration-500 hover:bg-slate-100 dark:hover:bg-slate-600 hover:text-sky-500 dark:hover:text-white/80 rounded-3xl">{lang === 'en' ? link.en_name : link.es_name}</a>
             )
         }
     </ul>
 </aside>
-<script src="../scripts/collapse-side-nav.js"/>
+<script>
+    import '../scripts/collapse-side-nav.js';
+</script>
