@@ -1,5 +1,7 @@
+import type { ImageMetadata } from "astro";
+
 export interface Experience {
-  companyLogoUrl?: string | ImageMetadata;
+  companyLogoUrl: ImageMetadata;
   title: string;
   company: string;
   description: string;
