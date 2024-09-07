@@ -1,14 +1,18 @@
-# Astro Starter Kit: Minimal
+# Tcriss portfolio
 
-```sh
-npm create astro@latest -- --template minimal
-```
+I finally manage to create my own portfolio where people can know about my learning path, skills and me.
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/minimal)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/minimal)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/minimal/devcontainer.json)
+This page is powered by Astro, a js framework perfect for building fast and performance web pages content-only oriented, like landing pages or blogs.
 
-## 🧞 Commands
+For the UI I used what I learned about tailwindCSS, a tool i recommend a lot if you already master css.
+
+### 🚀 Features
+
+- ServerSide Rendering: Content is rendered in the server in order to performs faster and lighter.
+- Image optimization: Thanks to astro, images are optimized for the client, taking less weight it would normally required in a vanilla web page.
+- SEO: Astro focuses on improving the SEO.
+
+### 🧞 Commands
 
 All commands are run from the root of the project, from a terminal:
 
