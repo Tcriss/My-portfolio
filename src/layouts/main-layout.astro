@@ -2,11 +2,11 @@
 import '@fontsource-variable/raleway';
 import '@fontsource-variable/inter';
 import '@fontsource-variable/jetbrains-mono';
+import { SEO } from 'astro-seo';
 import Footer from "../components/footer.astro";
 import NavBar from "../components/nav-bar.astro";
-import { SEO } from 'astro-seo';
 
-const { pageTitle, lang, title, description } = Astro.props;
+const { pageTitle, lang, description } = Astro.props;
 ---
 <!DOCTYPE html>
 <html lang={lang}>
@@ -16,8 +16,20 @@ const { pageTitle, lang, title, description } = Astro.props;
     <meta name="generator" content={Astro.generator} />
     <title>Cristian Tejeda</title>
     <SEO
-        title={title}
         description={description}
+        openGraph={{
+            basic: {
+              title: `${lang === 'en' ? "I'm" : 'Soy'} Cristian Tejeda`,
+              type: "A type.",
+              image: "https://tcriss.netlify.app/images/preview.png",
+            }
+        }}
+        twitter={{
+            site: `https://tcriss.netlify.app${lang === 'en' ? '/en/' : '/es/'}`,
+            title: `${lang === 'en' ? "I'm" : 'Soy'} Cristian Tejeda`,
+            description: description,
+            image: "https://tcriss.netlify.app/images/preview.png",
+        }}
         extend={{
             meta: [
                 {
@@ -31,6 +43,10 @@ const { pageTitle, lang, title, description } = Astro.props;
                 {
                     name: 'og:site_name',
                     content: 'Cristian Tejeda',
+                },
+                {
+                    name: 'og:type',
+                    content: 'website'
                 }
             ]
         }}
