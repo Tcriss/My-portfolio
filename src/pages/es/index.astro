@@ -4,8 +4,16 @@ import Hero from '../../components/hero.astro';
 import Projects from "../../components/projects.astro";
 import About from "../../components/about.astro";
 import Experience from "../../components/experience.astro";
+
+const title = "Soy Cristian Tejeda";
+const description = 'Un desarrollador web especializado en frontend con habilidades backend.';
 ---
-<MainLayout title={ 'Home' } lang="es">
+<MainLayout
+	title={ 'Home' }
+	lang="es"
+	title={title}
+	description={description}
+>
 	<Hero id="home" lang="es"/>
 	<About id=skills lang="es"/>
 	<Experience id="experience" lang="es"/>
