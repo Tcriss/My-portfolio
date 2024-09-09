@@ -5,6 +5,7 @@ import '@fontsource-variable/jetbrains-mono';
 import { SEO } from 'astro-seo';
 import Footer from "../components/footer.astro";
 import NavBar from "../components/nav-bar.astro";
+import { ViewTransitions } from 'astro:transitions';
 
 const { pageTitle, lang, description } = Astro.props;
 ---
@@ -47,16 +48,29 @@ const { pageTitle, lang, description } = Astro.props;
                 {
                     name: 'og:type',
                     content: 'website'
+                },
+                {
+                    name: 'keywords',
+                    content: [
+                        'cristian tejeda',
+                        'cristian alberto tejeda rojas',
+                        'Javascript Developer',
+                        'developer',
+                        'web developer',
+                        'web developer portfolio',
+                        'web developer page'
+                    ]
                 }
             ]
         }}
     />
+    <ViewTransitions/>
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.5.1/uicons-regular-rounded/css/uicons-regular-rounded.css'>
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.5.1/uicons-bold-straight/css/uicons-bold-straight.css'>
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.5.1/uicons-brands/css/uicons-brands.css'>
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.5.1/uicons-solid-rounded/css/uicons-solid-rounded.css'>
 </head>
-<body class="flex font-inter flex-col dark:bg-gradient-to-b dark:from-slate-800 dark:to-[#151515] dark:text-white items-center">
+<body transition:animate="slide" class="flex font-inter flex-col dark:bg-gradient-to-b dark:from-slate-800 dark:to-[#151515] dark:text-white items-center">
     <NavBar lang={lang}/>
     <main class="w-10/12 md:w-4/6 grid gap-12">
         <slot/>
@@ -64,3 +78,8 @@ const { pageTitle, lang, description } = Astro.props;
     </main>
 </body>
 </html>
+<style>
+    html {
+        scroll-behavior: smooth;
+    }
+</style>

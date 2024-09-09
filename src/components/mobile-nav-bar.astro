@@ -13,7 +13,7 @@ const links: Link[] = routes;
     <ul id="content" class="w-10/12 flex flex-col">
         {
             links && links.map(link => 
-                <a id="mobile-nav-link" href={link.path} aria-label={link.label} class="mobile-nav-link p-[30px] transition-all duration-500 hover:bg-slate-100 dark:hover:bg-slate-600 hover:text-sky-500 dark:hover:text-white/80 rounded-3xl">{lang === 'en' ? link.en_name : link.es_name}</a>
+                <a id="mobile-nav-link" data-astro-history="replace" href={link.path} aria-label={link.label} class="mobile-nav-link p-[30px] transition-all duration-500 hover:bg-slate-100 dark:hover:bg-slate-600 hover:text-sky-500 dark:hover:text-white/80 rounded-3xl">{lang === 'en' ? link.en_name : link.es_name}</a>
             )
         }
     </ul>

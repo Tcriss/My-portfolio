@@ -31,12 +31,13 @@ const links: Link[] = [
   }
 ];
 ---
-<nav id="nav-bar" class="flex gap-3 justify-center sticky top-6 rounded-full p-[10px] z-40 transition-all border-2 border-transparent duration-500 dark:shadow-none">
+<nav transition:name="nav-bar" id="nav-bar" class="flex gap-3 justify-center sticky top-6 rounded-full p-[10px] z-40 transition-all border-2 border-transparent duration-500 dark:shadow-none">
   <ul class="hidden md:flex justify-center gap-3 items-center">
     {
       links && links.map(link => 
         <li class="font-raleway font-bold rounded-[10px]">
           <a 
+            data-astro-history="replace"
             class="p-[10px] transition-all duration-500 hover:bg-slate-100 dark:hover:bg-slate-600 hover:text-sky-500 dark:hover:text-white/80 rounded-full"
             href={link.path}
             aria-label={link.label}
