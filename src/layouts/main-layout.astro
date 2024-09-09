@@ -78,8 +78,26 @@ const { pageTitle, lang, description } = Astro.props;
     </main>
 </body>
 </html>
-<style>
+<style is:global>
     html {
         scroll-behavior: smooth;
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+            @supports (animation-timeline: scroll()) {
+                p, h3 {
+                    animation: reveal-text linear forwards;
+                    animation-timeline: view();
+                    animation-range: cover 0% entry-crossing 100%;
+                }
+            }
+        }
+        @keyframes reveal-text {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
     }
 </style>

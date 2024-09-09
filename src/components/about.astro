@@ -67,6 +67,7 @@ const frontStack: string[] = [
           frontStack.map((stack) => (
             <li id="skill" class="grid grid-cols-auto-fit-100">
               <Image
+                id={'skill-photo'}
                 src={`https://skillicons.dev/icons?i=${stack}`}
                 alt={stack}
                 width="50"
@@ -78,6 +79,48 @@ const frontStack: string[] = [
         }
       </ul>
     </div>
-    <Image src={MyPicture} width={'240'} height={'240'} alt={'Cristian Tejeda'} class="w-60 h-60 rounded-lg rotate-6" />
+    <Image id={'profile-photo'} src={MyPicture} width={'240'} height={'240'} alt={'Cristian Tejeda'} class="w-60 h-60 rounded-lg rotate-6" />
   </div>
 </section>
+<style>
+  @media (prefers-reduced-motion: no-preference) {
+      @supports (animation-timeline: scroll()) {
+          #profile-photo {
+              animation: rotate linear both;
+              animation-timeline: view();
+              animation-range: entry-crossing 0% entry-crossing 100%;
+          }
+
+          #skill-photo {
+              animation: reveal linear forwards;
+              animation-timeline: view();
+              animation-range: cover 0% contain 100%;
+          }
+      }
+  }
+  @keyframes rotate {
+      from {
+          opacity: 0;
+          transform: rotate(0deg);
+      }
+      to {
+          opacity: 1;
+          transform: rotate(6deg);
+      }
+  }
+
+  @keyframes reveal {
+      0% {
+          opacity: 0;
+          transform: scale(0);
+      }
+      50% {
+          opacity: 1;
+          transform: scale(1.10);
+      }
+      to {
+          opacity: 1;
+          transform: scale(1);
+      }
+  }
+</style>

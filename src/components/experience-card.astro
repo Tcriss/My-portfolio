@@ -35,3 +35,24 @@ const { title, company, description, link, date, companyLogoUrl, index, skills }
         </div>
     </div>
 </article>
+<style>
+    @media (prefers-reduced-motion: no-preference) {
+        @supports (animation-timeline: scroll()) {
+            #experience {
+                animation: reveal-card linear forwards;
+                animation-timeline: view();
+                animation-range: cover 0% entry-crossing 100%;
+            }
+        }
+    }
+    @keyframes reveal-card {
+        0% {
+            opacity: 0;
+            transform: translateY(120px);
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+</style>
