@@ -2,15 +2,15 @@
 
 I finally manage to create my own portfolio where people can know about my learning path, skills and me.
 
-This page is powered by Astro, a js framework perfect for building fast and performance web pages content-only oriented, like landing pages or blogs.
-
-For the UI I used what I learned about tailwindCSS, a tool i recommend a lot if you already master css.
+This page is under construction, may contain bugs and little issues. It is powered by Astro, a js framework perfect for building fast and performance web pages content-only oriented, like landing pages or blogs.
 
 ### 🚀 Features
 
 - ServerSide Rendering: Content is rendered in the server in order to performs faster and lighter.
 - Image optimization: Thanks to astro, images are optimized for the client, taking less weight it would normally required in a vanilla web page.
-- SEO: Astro focuses on improving the SEO.
+- SEO: Astro focuses on improving the SEO and thanks to astro-seo libray to improve the development experience.
+- Language switch: It is built in english and spanish.
+- Dark mode: Thanks to tailwind, the page comes with darkmode switch, enabling the posibilitie to switch between light, dark and system.
 
 ### 🧞 Commands
 
