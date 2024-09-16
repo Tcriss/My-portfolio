@@ -6,6 +6,7 @@ import { SEO } from 'astro-seo';
 import Footer from "../components/footer.astro";
 import NavBar from "../components/nav-bar.astro";
 import { ViewTransitions } from 'astro:transitions';
+import Hero from '../components/hero.astro';
 
 const { pageTitle, lang, description } = Astro.props;
 ---
@@ -72,6 +73,7 @@ const { pageTitle, lang, description } = Astro.props;
 </head>
 <body transition:animate="slide" class="flex font-inter flex-col dark:bg-gradient-to-b dark:from-slate-800 dark:to-[#151515] dark:text-white items-center">
     <NavBar lang={lang}/>
+    <Hero id="home" lang={lang}/>
     <main class="w-10/12 md:w-4/6 grid gap-12">
         <slot/>
         <Footer lang={lang}/>

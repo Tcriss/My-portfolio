@@ -17,33 +17,27 @@ const es = {
     resumeBtn: "Curriculum"
 };
 ---
-<section id="hero" class="w-full h-[calc(100vh-3.3rem)] flex gap-6 justify-center">
-    <div id="resume" class="w-full flex flex-col gap-6 justify-center">
-        <h1 class="font-bold text-4xl font-raleway dark:text-white">
-            <strong class="font-jetbrains-mono font-bold inline-flex pt-2 overflow-x-hidden overflow-y-hidden animate-type group-hover:animate-type-reverse whitespace-nowrap text-brand-accent will-change-transform">Hello World</strong><span
-                class="box-border inline-block w-1 h-12 ml-2 -mb-2 transparent md:-mb-4 md:h-16 animate-cursor will-change-transform"
-            ></span>,
-            { lang && lang === 'en' ? en.presentation : es.presentation }
-        </h1>
-        <p id="resume" class="leading-8">{ lang && lang === 'en' ? en.description : es.description }</p>
-        <div id="actions" class="flex flex-wrap gap-5">
-            <a href={lang === 'en' ? '/resume.pdf' : '/curriculum.pdf' } target="_blank" class="text-sm items-center font-jetbrains-mono flex gap-2 dark:bg-slate-700 rounded-full border-2 border-slate-200 dark:border-slate-600 bg-slate-50 transition-all duration-500 p-2 active:scale-95">
-                <i class="fi fi-sr-resume flex justify-center items-center text-black dark:text-white"></i>
-                <p>{lang === 'en' ? en.resumeBtn : es.resumeBtn}</p>
-            </a>
-            <a href="https://github.com/Tcriss" target="_blank" class="text-sm font-jetbrains-mono border-2 border-slate-200 dark:border-slate-600 bg-slate-50 flex gap-2 dark:bg-slate-700 rounded-full transition-all duration-500 p-2 active:scale-95">
-                <i class="fi fi-brands-github flex justify-center items-center text-black dark:text-white"></i>
-                <p>Github</p>
-            </a>
-            <a href="https://www.linkedin.com/in/cristiant25/" target="_blank" class="text-sm font-jetbrains-mono border-2 border-slate-200 dark:border-slate-600 bg-slate-50 flex gap-2 dark:bg-slate-700 rounded-full transition-all duration-500 p-2 active:scale-95">
-                <i class="fi fi-brands-linkedin flex justify-center items-center text-black dark:text-white"></i>
-                <p>Linkedin</p>
-            </a>
-            <a href="mailto:cristiantejeda14@gmail.com" target="_blank" class="text-sm font-jetbrains-mono flex gap-2 dark:bg-slate-700 rounded-full border-2 border-slate-200 dark:border-slate-600 bg-slate-50 transition-all duration-500 p-2 active:scale-95">
-                <i class="fi fi-sr-envelope flex justify-center items-center text-black dark:text-white"></i>
-                <p>cristiantejeda14@gmail.com</p>
-            </a>
-        </div>
+<section id="hero" class="w-full bg-[length:150%_150%] bg-[radial-gradient(circle,_var(--tw-gradient-stops))] from-sky-200/40 dark:from-red-400/10 to-transparent animate-glow h-screen px-5 flex flex-col gap-6 justify-center items-center text-center">
+    <h1 class="font-bold text-center text-4xl font-raleway dark:text-white max-w-[500px]">
+        { lang && lang === 'en' ? en.presentation : es.presentation }
+    </h1>
+    <p id="resume" class="leading-8 max-w-[500px]">{ lang && lang === 'en' ? en.description : es.description }</p>
+    <div id="actions" class="flex flex-wrap gap-5">
+        <a href={lang === 'en' ? '/resume.pdf' : '/curriculum.pdf' } target="_blank" class="text-sm items-center font-jetbrains-mono flex gap-2 dark:bg-slate-700 rounded-full border-2 border-slate-200 dark:border-slate-600 bg-slate-50/70 transition-all duration-500 p-2 active:scale-95">
+            <i class="fi fi-sr-resume flex justify-center items-center text-black dark:text-white"></i>
+            <p>{lang === 'en' ? en.resumeBtn : es.resumeBtn}</p>
+        </a>
+        <a href="mailto:cristiantejeda14@gmail.com" target="_blank" class="text-sm font-jetbrains-mono flex gap-2 dark:bg-slate-700 rounded-full border-2 border-slate-200 dark:border-slate-600 bg-slate-50/70 transition-all duration-500 p-2 active:scale-95">
+            <i class="fi fi-sr-envelope flex justify-center items-center text-black dark:text-white"></i>
+            <!-- <p>cristiantejeda14@gmail.com</p> -->
+        </a>
+        <a href="https://github.com/Tcriss" target="_blank" class="text-sm font-jetbrains-mono border-2 border-slate-200 dark:border-slate-600 bg-slate-50/70 flex gap-2 dark:bg-slate-700 rounded-full transition-all duration-500 p-2 active:scale-95">
+            <i class="fi fi-brands-github flex justify-center items-center text-black dark:text-white"></i>
+            <!-- <p>Github</p> -->
+        </a>
+        <a href="https://www.linkedin.com/in/cristiant25/" target="_blank" class="text-sm font-jetbrains-mono border-2 border-slate-200 dark:border-slate-600 bg-slate-50/70 flex gap-2 dark:bg-slate-700 rounded-full transition-all duration-500 p-2 active:scale-95">
+            <i class="fi fi-brands-linkedin flex justify-center items-center text-black dark:text-white"></i>
+            <!-- <p>Linkedin</p> -->
+        </a>
     </div>
-    <div id="interactive" class="md:w-1/2 flex flex-col gap-6 justify-center"></div>
 </section>

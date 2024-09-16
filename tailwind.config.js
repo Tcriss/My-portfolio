@@ -14,30 +14,39 @@ export default {
         type: 'type 1.8s ease-out .8s 1 normal both',
         'type-reverse': 'type 1.8s ease-out 0s infinite alternate-reverse both',
         'infinite-scroll': 'infinite-scroll 30s linear infinite',
+        glow: 'glow-animation 10s ease infinite'
       },
       keyframes: {
-        type: {
-          '0%': { width: '0ch' },
-          '5%, 10%': { width: '1ch' },
-          '15%, 20%': { width: '2ch' },
-          '25%, 30%': { width: '3ch' },
-          '35%, 40%': { width: '4ch' },
-          '45%, 50%': { width: '5ch' },
-          '55%, 60%': { width: '6ch' },
-          '65%, 70%': { width: '7ch' },
-          '75%, 80%': { width: '8ch' },
-          '85%, 90%': { width: '9ch' },
-          '95%': { width: '10ch' },
-        },
         'infinite-scroll': {
           '0%': { transform: 'translateX(100%)' },
           '100%': { transform: 'translateX(-100%)' },
+        },
+        'glow-animation': {
+          '0%': {
+            'background-position': '0% 0%'
+          },
+          '25%': {
+              'background-position': '50% 5%'
+          },
+          '50%': {
+              'background-position': '100% 5%'
+          },
+          '75%': {
+              'background-position': '50% 5%'
+          },
+          '100%': {
+              'background-position': '0% 0%'
+          }
         }
       },
       fontFamily: {
         raleway: ["Raleway Variable", "sans-serif"],
         inter: ["Inter Variable", "sans-serif"],
         'jetbrains-mono': ["JetBrains Mono Variable", "sans-serif"]
+      },
+      backgroundColor: {
+        dark: 'radial-gradient(circle, rgba(166, 42, 4, 0.175), #1e2737, #1d2432)',
+        light: 'radial-gradient(circle, #32a7ea3e, #fff, #ffffff)'
       }
     },
   },
