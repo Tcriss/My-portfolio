@@ -45,8 +45,8 @@ export default {
         'jetbrains-mono': ["JetBrains Mono Variable", "sans-serif"]
       },
       backgroundColor: {
-        dark: 'radial-gradient(circle, rgba(166, 42, 4, 0.175), #1e2737, #1d2432)',
-        light: 'radial-gradient(circle, #32a7ea3e, #fff, #ffffff)'
+        dark: 'radial-gradient(circle at to right, rgba(166, 42, 4, 0.175), #1e2737, #1d2432)',
+        light: 'radial-gradient(259.53deg at 50% 0%, #32a7ea3e, #fff, #ffffff)'
       }
     },
   },
