@@ -1,6 +1,6 @@
 # Tcriss portfolio
 
-![Preview](./public/images/preview-doc.png)
+![Preview](./public/images/preview_en.png)
 I'm glad to present my own portfolio where everyone can know about my learning path, skills and me.
 
 This page is under construction, may contain bugs and little issues. It is powered by Astro, a js framework perfect for building fast and performance web pages content-only oriented, like landing pages or blogs.

@@ -4,7 +4,7 @@ import type { Link } from '../interfaces';
 const { routes, lang } = Astro.props;
 const links: Link[] = routes;
 ---
-<aside id="aside-nav-bar" class="flex invisible flex-col items-center pb-16 overflow-y-hidden justify-between translate-x-full transition-transform duration-500 gap-2 fixed z-50 top-0 w-screen h-screen bg-white/80 dark:bg-gray-700/80 backdrop-blur-xl shadow-[rgba(7,_65,_210,_0.1)_0px_9px_30px]">
+<aside id="aside-nav-bar" class="flex invisible flex-col items-center pb-16 overflow-y-hidden justify-between translate-x-full transition-transform duration-500 gap-2 fixed z-50 top-0 w-screen h-screen bg-white/80 dark:bg-gray-700/80 backdrop-blur-[20px] shadow-[rgba(7,_65,_210,_0.1)_0px_9px_30px]">
     <header class="w-10/12 h-20 font-mono flex justify-end items-center">
         <button id="close-btn" class="flex relative transition-all duration-500 transparent hover:text-sky-500 justify-center items-center text-center w-8 h-8 focus:outline-none focus:ring-4 font-medium rounded-full text-lg bg-slate-200 dark:bg-slate-700 hover:bg-slate-100 focus:ring-sky-200">
             <i class="fi fi-bs-cross-small flex items-center justify-center"></i>
