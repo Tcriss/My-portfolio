@@ -1,0 +1,69 @@
+---
+import { Image } from "astro:assets";
+import Tags from "./tags.astro";
+
+const { name, link, githubLink, imageUrl, description, tags } =  Astro.props;
+---
+<article id="project" class="flex flex-col from-slate-200 to-gary-100/50 dark:from-slate-700 gap-4 p-3">
+    <div id="image" class="w-full rounded-lg">
+        <Image src={imageUrl} width="323" height="154" alt={name} class="w-full rounded-lg">
+    </div>
+    <div id="info" class="flex flex-col gap-4 justify-between">
+        <div id="desc" class="flex flex-col gap-4">
+            <div id="header" class="flex justify-between">
+                {
+                    link !== null ?
+                    <a id="tile" href={link} target="_blank" class="font-jetbrains-mono font-bold text-xl flex gap-2 hover:text-sky-500 dark:hover:text-sky-900">
+                        {name}
+                        <i class="fi fi-bs-arrow-up-right flex justify-center items-center text-xs"></i>
+                    </a> :
+                    <p id="tile" class="font-jetbrains-mono font-bold text-xl">{name}</p>
+                }
+                <a href={githubLink} target="_blank" class="flex items-center gap-3 rounded-lg border-spacing-2">
+                    <i class="fi fi-brands-github flex text-2xl justify-center items-center text-black dark:text-white"></i>
+                </a>
+            </div>
+            <p id="description dark:text-white/50">{description}</p>
+        </div>
+        <ul id="tags" class="flex gap-2 flex-wrap">
+            {
+                tags && tags.map((tag: string) => <Tags tag={tag} />)
+            }
+        </ul>
+    </div>
+</article>
+<script src="../scripts/spotlight-glow-tracker.js"/>
+<style>
+    #project {
+        --radius: 16px;
+        --alpha: 0.15;
+        position: relative;
+    }
+
+    #project::before {
+        --border-width: 5px;
+        content: "";
+        position: absolute;
+        inset: 0;
+        mask:
+            linear-gradient(#fff, #ffff) 50% 0 / 100% var(--border-width),
+            linear-gradient(#fff, #ffff) 100% 0 / var(--border-width) 100%,
+            linear-gradient(#fff, #ffff) 50% 100% / 100% var(--border-width),
+            linear-gradient(#fff, #ffff) 0 0 / var(--border-width) 100%;
+        mask-repeat: no-repeat;
+    }
+
+    #project::before, #project::after {
+        pointer-events: none;
+    }
+
+    #project, #project::before {
+        border-radius: var(--radius);
+        background: radial-gradient(
+            circle at calc(var(--x)*1px) calc(var(--y)*1px),
+            var(--tw-gradient-from),
+            var(--tw-gradient-to) 200px
+        );
+        background-attachment: fixed;
+    }
+</style>

@@ -7,6 +7,7 @@ import githubImg from '../assets/logos/github-mark.png';
 import Section from '../layouts/sections-layout.astro';
 import type { Project } from '../interfaces';
 import Tags from './tags.astro';
+import ProjectCard from './project-card.astro';
 
 const { lang } = Astro.props;
 const projects: Project[] = [
@@ -65,60 +66,26 @@ const desc: string = "Here's some of my best work for the moment.";
 const es_desc: string = 'Aqui dejo alguno de mis mejores proyectos por el momento'
 ---
 <Section section="projects" name={lang === 'en' ? 'Projects' : 'Proyectos'} description={lang === 'en' ? desc : es_desc}>
-    <div class="w-full grid grid-cols-auto-fill-260 gap-6">
+    <div class="w-full grid grid-cols-auto-fill-260 gap-4">
         {
             lang === 'en' ? projects.map(project => 
-                <article id="project" class="flex flex-col gap-4 rounded-xl">
-                    <div id="image" class="w-full rounded-lg">
-                        <Image src={project.imageUrl} width="323" height="154" alt={project.name} class="w-full rounded-lg">
-                    </div>
-                    <div id="info" class="flex flex-col gap-4 justify-between">
-                        <div id="desc" class="flex flex-col gap-4">
-                            <div id="project-header" class="flex justify-between">
-                                {
-                                    project.link !== null ?
-                                    <a id="tile" href={project.link} target="_blank" class="font-jetbrains-mono font-bold text-xl">{project.name}</a> :
-                                    <p id="tile" class="font-jetbrains-mono font-bold text-xl">{project.name}</p>
-                                }
-                                <a href={project.githubLink} target="_blank" class="text-2xl">
-                                    <i class="fi fi-brands-github flex justify-center items-center text-black dark:text-white"></i>
-                                </a>
-                            </div>
-                            <p id="description dark:text-white/50">{project.description}</p>
-                        </div>
-                        <ul id="tags" class="flex gap-2 flex-wrap">
-                            {
-                                project.tags && project.tags.map(tag => <Tags tag={tag} />)
-                            }
-                        </ul>
-                    </div>
-                </article>
+                <ProjectCard
+                    imageUrl={project.imageUrl}
+                    name={project.name}
+                    description={project.description}
+                    link={project.link}
+                    githubLink={project.githubLink}
+                    tags={project.tags}
+                />
             ) : es_projects.map(project => 
-                <article id="project" class="flex flex-col gap-4 rounded-xl">
-                    <div id="image" class="w-full rounded-lg">
-                        <Image src={project.imageUrl} width="323" height="154" alt={project.name} class="w-full rounded-lg">
-                    </div>
-                    <div id="info" class="flex flex-col gap-4 justify-between">
-                        <div id="desc" class="flex flex-col gap-4">
-                            <div id="project-header" class="flex justify-between">
-                                {
-                                    project.link !== null ?
-                                    <a id="tile" href={project.link} target="_blank" class="font-jetbrains-mono font-bold text-xl">{project.name}</a> :
-                                    <p id="tile" class="font-jetbrains-mono font-bold text-xl">{project.name}</p>
-                                }
-                                <a href={project.githubLink} target="_blank" class="text-2xl">
-                                    <i class="fi fi-brands-github flex justify-center items-center text-black dark:text-white"></i>
-                                </a>
-                            </div>
-                            <p id="description" class="dark:text-white/50">{project.description}</p>
-                        </div>
-                        <ul id="tags" class="flex gap-2 flex-wrap">
-                            {
-                                project.tags && project.tags.map(tag => <Tags tag={tag} />)
-                            }
-                        </ul>
-                    </div>
-                </article>
+                <ProjectCard
+                    imageUrl={project.imageUrl}
+                    name={project.name}
+                    description={project.description}
+                    link={project.link}
+                    githubLink={project.githubLink}
+                    tags={project.tags}
+                />
             )
         }
     </div>
