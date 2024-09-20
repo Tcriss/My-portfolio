@@ -10,20 +10,42 @@ const { section, name, description } = Astro.props;
 </section>
 <style>
     @media (prefers-reduced-motion: no-preference) {
-            @supports (animation-timeline: scroll()) {
-                p, h3 {
-                    animation: reveal-text linear forwards;
-                    animation-timeline: view();
-                    animation-range: cover 0% entry-crossing 100%;
-                }
+        @supports (animation-timeline: scroll()) {
+            p, h3 {
+                animation: reveal-header linear both;
+                animation-timeline: view();
+                animation-range: cover 0% contain 100%;
             }
         }
-        @keyframes reveal-text {
-            0% {
-                opacity: 0;
+    }
+
+    @media screen (max-width: 639px) and (prefers-reduced-motion: no-preference) {
+        @supports (animation-timeline: scroll()) {
+            p, h3 {
+                animation: reveal-header-mobile linear both;
+                animation-timeline: view();
+                animation-range: cover 0% contain 100%;
             }
-            100% {
-                opacity: 1;
-            }
+        }
+    }
+
+    @keyframes reveal-header {
+        0% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+
+    @keyframes reveal-header-mobile {
+        0% {
+            opacity: 0;
+            transform: translateY(120px);
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0px);
+        }
     }
 </style>

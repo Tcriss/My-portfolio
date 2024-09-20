@@ -34,36 +34,59 @@ const { name, link, githubLink, imageUrl, description, tags } =  Astro.props;
 </article>
 <script src="../scripts/spotlight-glow-tracker.js"/>
 <style>
-    #project {
-        --radius: 16px;
-        --alpha: 0.15;
-        position: relative;
+    @media screen and (min-width: 639px) {
+        #project {
+            --radius: 16px;
+            --alpha: 0.15;
+            position: relative;
+        }
+
+        #project::before {
+            --border-width: 5px;
+            content: "";
+            position: absolute;
+            inset: 0;
+            mask:
+                linear-gradient(#fff, #ffff) 50% 0 / 100% var(--border-width),
+                linear-gradient(#fff, #ffff) 100% 0 / var(--border-width) 100%,
+                linear-gradient(#fff, #ffff) 50% 100% / 100% var(--border-width),
+                linear-gradient(#fff, #ffff) 0 0 / var(--border-width) 100%;
+            mask-repeat: no-repeat;
+        }
+
+        #project::before, #project::after {
+            pointer-events: none;
+        }
+
+        #project, #project::before {
+            border-radius: var(--radius);
+            background: radial-gradient(
+                circle at calc(var(--x)*1px) calc(var(--y)*1px),
+                var(--tw-gradient-from),
+                var(--tw-gradient-to) 200px
+            );
+            background-attachment: fixed;
+        }
     }
 
-    #project::before {
-        --border-width: 5px;
-        content: "";
-        position: absolute;
-        inset: 0;
-        mask:
-            linear-gradient(#fff, #ffff) 50% 0 / 100% var(--border-width),
-            linear-gradient(#fff, #ffff) 100% 0 / var(--border-width) 100%,
-            linear-gradient(#fff, #ffff) 50% 100% / 100% var(--border-width),
-            linear-gradient(#fff, #ffff) 0 0 / var(--border-width) 100%;
-        mask-repeat: no-repeat;
+    @media screen and (max-width: 639px) and (prefers-reduced-motion: no-preference) {
+        @supports (animation-timeline: scroll()) {
+            #project {
+                animation: reveal-project linear both;
+                animation-timeline: view();
+                animation-range: cover 0% entry-crossing 100%;
+            }
+        }
     }
 
-    #project::before, #project::after {
-        pointer-events: none;
-    }
-
-    #project, #project::before {
-        border-radius: var(--radius);
-        background: radial-gradient(
-            circle at calc(var(--x)*1px) calc(var(--y)*1px),
-            var(--tw-gradient-from),
-            var(--tw-gradient-to) 200px
-        );
-        background-attachment: fixed;
+    @keyframes reveal-project {
+        0% {
+            opacity: 0;
+            transform: translateY(120px);
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0px);
+        }
     }
 </style>

@@ -94,27 +94,4 @@ const es_desc: string = 'Aqui dejo alguno de mis mejores proyectos por el moment
             lang === 'en' ? 'See all projects ->' : 'Ver todos los proyectos ->'
         }</a>
     </section>
-    <style>
-        @media (prefers-reduced-motion: no-preference) {
-            @supports (animation-timeline: scroll()) {
-                article {
-                    animation: reveal-project linear forwards;
-                    animation-timeline: view();
-                    animation-range: cover 0% entry-crossing 100%;
-                }
-            }
-        }
-        @keyframes reveal-project {
-            0% {
-                opacity: 0;
-                transform: scale(0.90);
-                transform: translateY(120px);
-            }
-            100% {
-                opacity: 1;
-                transform: scale(1);
-                transform: translateY(0);
-            }
-        }
-    </style>
 </Section>
