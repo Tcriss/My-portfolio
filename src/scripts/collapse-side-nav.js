@@ -21,7 +21,7 @@ closeBtn.addEventListener('click', (e) => {
     openSidebar();
 });
 
-navItems.forEach(item => item.addEventListener('click', openSidebar()));
+navItems.forEach(item => item.addEventListener('click', () => openSidebar()));
 
 const callback = (entries) => {
   entries.forEach((entry) => {
