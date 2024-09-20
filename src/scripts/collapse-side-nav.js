@@ -5,24 +5,23 @@ const sections = document.querySelectorAll("section");
 const navItems = document.querySelectorAll("aside ul a");
 const theme = localStorage.getItem('theme') || 'system';
 
+const openSidebar = () => {
+  aside.classList.toggle('invisible');
+  aside.classList.toggle('translate-x-full');
+  document.documentElement.classList.toggle('overflow-y-hidden');
+};
+
 openBtn.addEventListener('click', (e) => {
     e.preventDefault();
-    aside.classList.toggle('invisible');
-    aside.classList.toggle('translate-x-full');
+    openSidebar();
 });
 
 closeBtn.addEventListener('click', (e) => {
     e.preventDefault();
-    aside.classList.toggle('invisible');
-    aside.classList.toggle('translate-x-full');
+    openSidebar();
 });
 
-navItems.forEach(item => {
-  item.addEventListener('click', () => {
-    aside.classList.toggle('invisible');
-    aside.classList.toggle('translate-x-full');
-  });
-});
+navItems.forEach(item => item.addEventListener('click', openSidebar()));
 
 const callback = (entries) => {
   entries.forEach((entry) => {
