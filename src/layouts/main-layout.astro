@@ -8,8 +8,18 @@ import Footer from "../components/footer.astro";
 import NavBar from "../components/nav-bar.astro";
 import Hero from '../components/hero.astro';
 
-const { pageTitle, lang, description } = Astro.props;
+const { lang, description } = Astro.props;
 const host: string = import.meta.env.HOST;
+const keywords: string = `
+'cristian tejeda',
+'cristian alberto tejeda rojas',
+'Javascript Developer',
+'developer',
+'web developer',
+'web developer portfolio',
+'web developer page'
+`;
+
 ---
 <!DOCTYPE html>
 <html lang={lang}>
@@ -17,57 +27,26 @@ const host: string = import.meta.env.HOST;
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content={Astro.generator} />
-    <title>Cristian Tejeda</title>
-    <SEO
-        description={description}
-        openGraph={{
-            basic: {
-              title: `${lang === 'en' ? "I'm" : 'Soy'} Cristian Tejeda`,
-              type: "A type.",
-              image: `${lang === 'en' ? `${host}/images/preview_en.png` : `${host}/images/preview_es.png`}`,
-            }
-        }}
-        twitter={{
-            site: `https://tcriss.netlify.app${lang === 'en' ? '/en/' : '/es/'}`,
-            title: `${lang === 'en' ? "I'm" : 'Soy'} Cristian Tejeda`,
-            description: description,
-            image: `${lang === 'en' ? `${host}/images/preview_en.png` : `${host}/images/preview_es.png`}`,
-        }}
-        extend={{
-            meta: [
-                {
-                    name: 'og:locale',
-                    content: `${lang === 'en' ? 'en_US' : 'es_ES'}`,
-                },
-                {
-                    name: 'og:description',
-                    content: description,
-                },
-                {
-                    name: 'og:site_name',
-                    content: 'Cristian Tejeda',
-                },
-                {
-                    name: 'og:type',
-                    content: 'website'
-                },
-                {
-                    name: 'keywords',
-                    content: [
-                        'cristian tejeda',
-                        'cristian alberto tejeda rojas',
-                        'Javascript Developer',
-                        'developer',
-                        'web developer',
-                        'web developer portfolio',
-                        'web developer page'
-                    ]
-                }
-            ]
-        }}
-    />
-    <link rel="icon" type="image/svg+xml" href=`${host}/favicon.svg` />
+    <meta name="description" content={description} data-rh="true"/>
+    <meta name="keywords" content={keywords}>
     <meta name="theme-color" content="#ffffff">
+    <title>Cristian Tejeda</title>
+    <!-- facebook meta tags -->
+    <meta property="og:url" content=`https://www.tcriss.com/${lang === 'en' ? 'en' : 'es'}` />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content=`Cristian Tejeda - ${lang === 'en' ? "Web Developer" : 'Desarrollador Web'}`/>
+    <meta property="og:description" content={description} />
+    <meta property="og:image" itemprop="image" content={`${host}/images/${lang === 'en' ? 'preview_en.png' : 'preview_es.png'}`} />
+    <meta property="og:locale" content={lang === 'en' ? 'en_US' : 'es_ES'} />
+    <!-- twiiter meta tags -->
+    <meta property="twitter:card" content={`${host}/images/${lang === 'en' ? 'preview_en.png' : 'preview_es.png'}`} />
+	<meta property="twitter:url" content=`https://www.tcriss.com/${lang === 'en' ? 'en' : 'es'}` />
+	<meta property="twitter:title" content=`Cristian Tejeda - ${lang === 'en' ? "Web Developer" : 'Desarrollador Web'}`/>
+	<meta property="twitter:description" content={description} />
+	<meta property="twitter:image" content={`${host}/images/${lang === 'en' ? 'preview_en.png' : 'preview_es.png'}`} />
+
+    <link rel="apple-touch-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/svg+xml" href=`${host}/favicon.svg` />
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.5.1/uicons-regular-rounded/css/uicons-regular-rounded.css'>
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.5.1/uicons-bold-straight/css/uicons-bold-straight.css'>
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.5.1/uicons-brands/css/uicons-brands.css'>
