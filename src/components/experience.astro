@@ -1,85 +1,130 @@
 ---
-import type { Experience } from '../interfaces';
-import ExperienceCard from './experience-card.astro';
-import nelmixlogo from '../assets/company-logos/nelmix.png';
-import Section from '../layouts/sections-layout.astro';
+import type { Experience } from "../interfaces";
+import ExperienceCard from "./experience-card.astro";
+import nelmixlogo from "../assets/company-logos/nelmix.png";
+import indexingLogo from "../assets/company-logos/indexing_light.png";
+import Section from "../layouts/sections-layout.astro";
 
 const { lang } = Astro.props;
 const en_experiences: Experience[] = [
-    {
-        company: 'Nelmix Solutions',
-        companyLogoUrl: nelmixlogo,
-        date: 'December 2024',
-        description: `
-            My responsibilities included developing, building, and maintaining web applications, with a focus on optimizing performance, quality, and user experience.
+  {
+    company: "Indexing",
+    companyLogoUrl: indexingLogo,
+    date: "Present",
+    description: `I currently work as a Web Developer, contributing to the development of web and mobile applications using Flutter and TypeScript. I also take part in customizing and maintaining business solutions based on Odoo, while managing development and deployment environments with Docker to ensure consistency and scalability.`,
+    title: "Web Developer",
+    link: "https://indexing.do/",
+    skills: [
+      "Angular",
+      "Flutter",
+      "Typescript",
+      "Python",
+      "Git",
+      "Github",
+      "Docker",
+      "Odoo",
+    ],
+  },
+  {
+    company: "Nelmix Solutions",
+    companyLogoUrl: nelmixlogo,
+    date: "December 2024",
+    description: `
+             I currently serve as a Web Developer and Mobile using Flutter and TypeScript. In addition, it offers Odoo-based business solutions, managing development and deployment environments with Docker to ensure consistent and scalable environments.
         `,
-        title: 'Jr Frontend Developer',
-        link: 'https://nelmix.com/',
-        skills: ['Angular', 'Typescript', 'Git', 'Github', 'Jira', 'Docker']
-    },
-    {
-        company: 'Nelmix Solutions',
-        companyLogoUrl: nelmixlogo,
-        date: 'October 2023',
-        description: `My role consisted of polishing and maintaining consumer-focused websites.`,
-        title: 'Intership Frontend Developer',
-        link: 'https://nelmix.com/',
-        skills: ['Angular', 'TypeForms']
-    }
+    title: "Jr Frontend Developer",
+    skills: ["Angular", "Typescript", "Git", "Github", "Jira", "Docker"],
+  },
+  {
+    company: "Nelmix Solutions",
+    companyLogoUrl: nelmixlogo,
+    date: "October 2023",
+    description: `My role consisted of polishing and maintaining consumer-focused websites.`,
+    title: "Intership Frontend Developer",
+    skills: ["Angular", "TypeForms"],
+  },
 ];
 const es_experiences: Experience[] = [
-{
-        company: 'Nelmix Solutions',
-        companyLogoUrl: nelmixlogo,
-        date: 'Diciembre 2024',
-        description: `
+  {
+    company: "Indexing",
+    companyLogoUrl: indexingLogo,
+    date: "Actualidad",
+    description: `
+            Actualmente me desempeño como Desarrollador Web y Mobile utilizando Flutter y TypeScript. Además, ofrezco soluciones empresariales basadas en Odoo, gestionando entornos de desarrollo y despliegue con Docker para garantizar entornos consistentes y escalables.`,
+    title: "Web Developer",
+    link: "https://indexing.do/",
+    skills: [
+      "Angular",
+      "Flutter",
+      "Typescript",
+      "Python",
+      "Git",
+      "Github",
+      "Docker",
+      "Odoo",
+    ],
+  },
+  {
+    company: "Nelmix Solutions",
+    companyLogoUrl: nelmixlogo,
+    date: "Diciembre 2024",
+    description: `
             Mi rol concistió en la creación, construcción y mantenimiento de aplicaciones webs,
             optimizando su desempeño mejorando la calidad y experiencia del usuario.
         `,
-        title: 'Jr Frontend Web Developer',
-        link: 'https://nelmix.com/',
-        skills: ['Angular', 'Typescript', 'Git', 'Github', 'Jira', 'Docker']
-    },
-    {
-        company: 'Nelmix Solutions',
-        companyLogoUrl: nelmixlogo,
-        date: 'Octubre 2023',
-        description: `Mi rol concistía en pulir y mantener páginas web enfocadas hacia el consumidor.`,
-        title: 'Pasante Desarrollador Web Frontend',
-        link: 'https://nelmix.com/',
-        skills: ['Angular', 'TypeForms']
-    }
+    title: "Jr Frontend Web Developer",
+    skills: ["Angular", "Typescript", "Git", "Github", "Jira", "Docker"],
+  },
+  {
+    company: "Nelmix Solutions",
+    companyLogoUrl: nelmixlogo,
+    date: "Octubre 2023",
+    description: `Mi rol concistía en pulir y mantener páginas web enfocadas hacia el consumidor.`,
+    title: "Pasante Desarrollador Web Frontend",
+    skills: ["Angular", "TypeForms"],
+  },
 ];
-const desc: string = 'My experience';
-const es_desc: string = 'Mi experiencia';
+const desc: string = "My experience";
+const es_desc: string = "Mi experiencia";
 ---
-<Section section="experience" name={lang === 'en' ? 'Experience' : 'Experiencia'} description={lang === 'en' ? desc : es_desc}>
-    <div id="experiences" class="w-full grid gap-6">
-        {
-            lang === 'en' ? en_experiences.map((xp, index) => 
-                <ExperienceCard
-                    title={xp.title}
-                    company={xp.company}
-                    description={xp.description}
-                    date={xp.date}
-                    link={xp.link}
-                    companyLogoUrl={xp.companyLogoUrl}
-                    index={index}
-                    skills={xp.skills}
-                />
-            ) : es_experiences.map((xp, index) => 
-                <ExperienceCard
-                    title={xp.title}
-                    company={xp.company}
-                    description={xp.description}
-                    date={xp.date}
-                    link={xp.link}
-                    companyLogoUrl={xp.companyLogoUrl}
-                    index={index}
-                    skills={xp.skills}
-                />
-            )
-        }
-        <div class="absolute md:left-1/2 transform -z-[2] -translate-x-1/2 w-0.5 h-full bg-gray-200 dark:bg-gray-700" aria-hidden="true"></div>
+
+<Section
+  section="experience"
+  name={lang === "en" ? "Experience" : "Experiencia"}
+  description={lang === "en" ? desc : es_desc}
+>
+  <div id="experiences" class="w-full grid gap-6">
+    {
+      lang === "en"
+        ? en_experiences.map((xp, index) => (
+            <ExperienceCard
+              title={xp.title}
+              company={xp.company}
+              description={xp.description}
+              date={xp.date}
+              link={xp.link}
+              companyLogoUrl={xp.companyLogoUrl}
+              index={index}
+              skills={xp.skills}
+            />
+          ))
+        : es_experiences.map((xp, index) => (
+            <ExperienceCard
+              title={xp.title}
+              company={xp.company}
+              description={xp.description}
+              date={xp.date}
+              link={xp.link}
+              companyLogoUrl={xp.companyLogoUrl}
+              index={index}
+              skills={xp.skills}
+            />
+          ))
+    }
+    <div
+      class="absolute md:left-1/2 transform -z-[2] -translate-x-1/2 w-0.5 h-full bg-gray-200 dark:bg-gray-700"
+      aria-hidden="true"
+    >
     </div>
-</Section
+  </div>
+</Section>

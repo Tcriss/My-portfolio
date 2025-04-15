@@ -17,7 +17,13 @@ const { title, company, description, link, date, companyLogoUrl, index, skills }
             <Image src={companyLogoUrl} width="80" height="80" alt={`${company} logo`} class="rounded-full" />
             <div class=`${index % 2 === 0 && 'md:text-right'}`>
                 <h3 class="text-xl font-semibold font-raleway">{title}</h3>
-                <p class="text-muted-foreground">{company}</p>
+                {
+                    link !== undefined
+                    ? <a id="tile" href={link} target="_blank" class="text-muted-foreground flex gap-2 hover:text-sky-500 dark:hover:text-sky-900">
+                        {company}
+                        <i class="fi fi-bs-arrow-up-right flex justify-center items-center text-xs"></i>
+                    </a> : <p class="text-muted-foreground">{company}</p>
+                }
             </div>
         </div>
         <div class={`flex items-center dark:text-white/50 text-sm text-muted-foreground gap-3 ${index % 2 === 0 && 'md:justify-end'}`}>

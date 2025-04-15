@@ -42,7 +42,6 @@ export default {
       fontFamily: {
         raleway: ["Raleway Variable", "sans-serif"],
         inter: ["Inter Variable", "sans-serif"],
-        'jetbrains-mono': ["JetBrains Mono Variable", "sans-serif"]
       },
       backgroundColor: {
         dark: 'radial-gradient(circle at to right, rgba(166, 42, 4, 0.175), #1e2737, #1d2432)',

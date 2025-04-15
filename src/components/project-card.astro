@@ -13,11 +13,11 @@ const { name, link, githubLink, imageUrl, description, tags } =  Astro.props;
             <div id="header" class="flex justify-between">
                 {
                     link !== null ?
-                    <a id="tile" href={link} target="_blank" class="font-jetbrains-mono font-bold text-xl flex gap-2 hover:text-sky-500 dark:hover:text-sky-900">
+                    <a id="tile" href={link} target="_blank" class="font-raleway font-bold text-xl flex gap-2 hover:text-sky-500 dark:hover:text-sky-900">
                         {name}
                         <i class="fi fi-bs-arrow-up-right flex justify-center items-center text-xs"></i>
                     </a> :
-                    <p id="tile" class="font-jetbrains-mono font-bold text-xl">{name}</p>
+                    <p id="tile" class="font-raleway font-bold text-xl">{name}</p>
                 }
                 <a href={githubLink} target="_blank" class="flex items-center gap-3 rounded-lg border-spacing-2">
                     <i class="fi fi-brands-github flex text-2xl justify-center items-center text-black dark:text-white"></i>
